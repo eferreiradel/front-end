@@ -1,5 +1,5 @@
 <template>
-    <button>
+    <button type="button">
         {{ btnText }}
     </button>
 </template>
@@ -16,12 +16,15 @@
         }
     }
 </script>
-<style scoped style lang="scss">
+<style scoped lang="scss">
+
     @import "../../style.scss";
+
     button {
     background-color: $color__primary;
-    border-radius: 10px;
     border: 1px solid #000;
     color: black;
+    
     } 
+
 </style>

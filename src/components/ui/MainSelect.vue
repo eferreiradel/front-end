@@ -33,6 +33,8 @@
 </script>
 <style scoped style lang="scss">
     @import "../../style.scss";
+
+
 .mainSelect {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -42,6 +44,7 @@
     color: darkgray;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
     width: 100%;
+
 
     padding-left: 1rem;
     padding-right: 1rem;
@@ -81,6 +84,9 @@ i {
     align-items: center;
     justify-content: center;
 
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+
+
   &:hover {
     background-color: $color__primary;
     cursor: pointer;
@@ -92,12 +98,4 @@ i {
     }
   }
 }
-
-
-
-
-
-
-  
-    
 </style>

@@ -33,7 +33,6 @@
 <style scoped lang="scss">
 @import "../../style.scss";
 .navbar {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
     background-color: $color__primary;
     // padding: 1rem auto;
     height: $navbar__height;

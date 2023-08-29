@@ -1,6 +1,6 @@
 <template>
     <div class="jumbotron">
-        
+
     </div>
 </template>
 <script>
@@ -17,6 +17,6 @@
 <style scoped lang="scss">  
     @import "../../style.scss";
     .jumbotron {
-        height: calc(100vh - $navbar__height);
+        // height: calc(100vh - $navbar__height);
     }    
 </style>
