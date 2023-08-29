@@ -9,23 +9,39 @@
 
 <script>
 import AppHeader from './components/layouts/AppHeader.vue';
-import SubjectPannel from './components/ui/SubjectPannel.vue';
+import {store} from '../src/store'
+import axios from 'axios';
 
 export default {
   
   name: "App",
-  
-data() {
-  return {
-    data: "okok",
-    fetchedData: null,
-    };
-  },
   components: {
-    AppHeader,
-    SubjectPannel
-}
-};
+    AppHeader
+  },
+  data() {
+    return {
+      store,
+      data: "okok",
+      fetchedData: null,
+    };
+  },methods:{
+      getApi(){
+            axios.get(store.apiUrl).then(response => {
+                store.users = response.data.data
+                store.loading = false
+                store.lastPage = response.data.last_page
+                console.log(store.lastPage);
+            
+            })
+            }, 
+
+            // aggiungere catch
+            
+  },mounted(){
+    this.getApi()
+  }
+  }
+
 </script>
 
 <style scoped>
