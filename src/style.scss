@@ -16,9 +16,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-// * {
-//   border: 1px solid black;
-// }
+* {
+  border: 1px solid black;
+}
+
 
 a {
   text-decoration: none;
@@ -35,3 +36,8 @@ button {
   background-color: blue;
 
 }  
+
+li {
+  list-style: none;
+  font-weight: bolder;
+}

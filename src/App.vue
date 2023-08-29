@@ -1,5 +1,6 @@
 <template>
   <header>
+    <SubjectPannel></SubjectPannel>
     <AppHeader></AppHeader>
   </header>
   <main>
@@ -8,22 +9,21 @@
 </template>
 <script>
 import AppHeader from './components/layouts/AppHeader.vue';
+import SubjectPannel from './components/ui/SubjectPannel.vue';
 
 export default {
   
   name: "App",
-
-
-
-  data() {
-    return {
-      data: "okok",
-      fetchedData: null,
+  
+data() {
+  return {
+    data: "okok",
+    fetchedData: null,
     };
   },
   components: {
-    
-    AppHeader
+    AppHeader,
+    SubjectPannel
 }
 };
 </script>
