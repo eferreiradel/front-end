@@ -2,7 +2,7 @@
     <div class="card shadow border" style="width: 18rem;">
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="card-img-top rounded-circle ps-5 pe-5 mt-4" alt="Nome Cognome">
         <div class="card-body d-flex flex-column align-items-center">
-            <h5 class="card-title m-0">{{(teacher && teacher.name) ?? "Nome Cognome"}}</h5>
+            <h5 class="card-title m-0">{{(teacher && teacher.name) ?? "Nome"}} {{(teacher && teacher.surname) ?? "Cognome"}}</h5>
             <p class="card-text m-0 p-3">
                 <span class="fa fa-star fs-5 checked"></span>
                 <span class="fa fa-star fs-4 checked"></span>

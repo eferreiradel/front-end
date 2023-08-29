@@ -3,10 +3,12 @@
     import axios from 'axios';
     import {store} from '../store'
     import Jumbotron from '../components/layouts/Jumbotron.vue'
+    import TeacherCard from '../components/TeacherCard.vue'
     export default {
         name: "AdvancedSearch",
         components: {
             Jumbotron,
+            TeacherCard
         },
         data() {
             return {
@@ -78,13 +80,7 @@
     <p v-if="store.loading" class="m-3">Sta caricando...</p>
     <div class="d-flex flex-wrap">
         <div v-for="user in store.users" class="card_container">
-            <div class="d-flex">
-                <div class="me-2 fw-bold" >{{ user.name }}</div>
-                <div class="fw-bold">{{ user.surname }}</div>
-            </div>
-            <img :src="user.profile_image" alt="">
-            <p class="mt-3">{{ user.description }}</p>
-            <button class="btn btn-primary">Dettagli</button>
+            <TeacherCard :teacher="user" />
         </div>
     </div>
     
@@ -93,18 +89,8 @@
 <style scoped>
 
 .card_container{
-    width: calc(100% / 5 - 40px);
-    border: 1px solid green;
-    border-radius: 20px;
+    width: calc(100% / 4 - 40px );
     margin: 20px;
-    padding: 20px;
 }
 
-.card_container img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-top: 10px;
-}
-
-</style>
+</style> 

@@ -6,7 +6,7 @@
                 <template v-for="(teacherGroup, index) in teacherGroups" :key="index">
                     <SplideSlide>
                         <div class="d-flex justify-content-evenly mb-4">
-                            <TeacherCard />
+                            <TeacherCard :teacher="user"/>
                         </div>
                     </SplideSlide>
                 </template>
