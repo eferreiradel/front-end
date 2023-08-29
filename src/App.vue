@@ -4,6 +4,23 @@
   </header>
   <main>
     <Jumbotron></Jumbotron>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row py-5 justify-content-center">
+          <div class="col-4 d-flex gap-5 flex-column">
+            <div>
+              <MainSelect></MainSelect>
+            </div>
+            <div class="">
+              <PrimaryButton btnText="BOTTONE"></PrimaryButton>
+            </div>
+            <div>
+              <SubmitButton btnText="SUBMIT"></SubmitButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <body>
 
