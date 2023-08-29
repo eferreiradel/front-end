@@ -12,9 +12,6 @@ import AppHeader from './components/layouts/AppHeader.vue';
 export default {
   
   name: "App",
-
-
-
   data() {
     return {
       data: "okok",
@@ -22,7 +19,6 @@ export default {
     };
   },
   components: {
-    
     AppHeader
 }
 };
