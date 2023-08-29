@@ -7,13 +7,7 @@
                     <SplideSlide>
                         <div class="d-flex justify-content-evenly">
                             <template v-for="teacher in teacherGroup" :key="teacher.name">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ teacher.name }}</h5>
-                                        <p class="card-text">{{ teacher.description }}</p>
-                                        <p class="card-text">{{ teacher.subject }}</p>
-                                    </div>
-                                </div>
+                                <TeacherCard />
                             </template>
                         </div>
                     </SplideSlide>
@@ -26,12 +20,14 @@
 <script>
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
+import TeacherCard from '../TeacherCard.vue'
 
 export default {
     name: "SliderHome",
     components: {
         Splide,
         SplideSlide,
+        TeacherCard
     },
     data() {
         return {
