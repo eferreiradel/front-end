@@ -1,13 +1,13 @@
 <template>
-    <Jumbotron />
+    <TeacherCard class="m-5" />
 </template>
 
 <script>
-    import Jumbotron from '../components/layouts/Jumbotron.vue'
+    import TeacherCard from '../components/TeacherCard.vue'
     export default {
         name: "AdvancedSearch",
         components: {
-            Jumbotron
+            TeacherCard
         }
     }
 </script>
