@@ -1,0 +1,45 @@
+<template>
+    <div class="container-fluid navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <NavBarToggle></NavBarToggle>
+            <div>
+                <svg width="122" height="33" viewBox="0 0 122 33" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect width="122" height="33" fill="url(#pattern0)"/>
+                <defs>
+                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_12_114" transform="matrix(0.00298507 0 0 0.0110357 0 -0.00212573)"/>
+                </pattern>
+                <image id="image0_12_114" width="335" height="91" xlink:href="data:image/png;base64,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"/>
+                </defs>
+                </svg>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    import NavBarToggle from "../ui/NavBarToggle.vue";
+    export default {
+        name: "NavBar",
+        data() {
+            return {
+
+            }
+        },
+        components: {
+            NavBarToggle: NavBarToggle,
+        }
+    }
+</script>
+<style scoped lang="scss">
+@import "../../style.scss";
+.navbar {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    background-color: $color__primary;
+    // padding: 1rem auto;
+    height: $navbar__height;
+    // border-bottom: 1px solid black;
+    i {
+        color: white;
+    }
+}
+</style>
