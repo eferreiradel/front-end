@@ -5,10 +5,8 @@
             <Splide :options="splideOptions">
                 <template v-for="(teacherGroup, index) in teacherGroups" :key="index">
                     <SplideSlide>
-                        <div class="d-flex justify-content-evenly">
-                            <template v-for="teacher in teacherGroup" :key="teacher.name">
-                                <TeacherCard />
-                            </template>
+                        <div class="d-flex justify-content-evenly mb-4">
+                            <TeacherCard />
                         </div>
                     </SplideSlide>
                 </template>
@@ -33,7 +31,7 @@ export default {
         return {
             splideOptions: {
                 type: 'loop',
-                perPage: 1,
+                perPage: 3,
                 focus: "center",
                 autoplay: true,
                 arrows: true,
@@ -42,6 +40,11 @@ export default {
                 breakpoints: {
                     992: {
                         arrows: false,
+                        perPage: 1,
+                    },
+                    576: {
+                        arrows: false,
+                        perPage: 1,
                     }
                 }
             },
@@ -71,14 +74,14 @@ export default {
         }
     },
     computed: {
-        teacherGroups() {
-            const groups = [];
+    teacherGroups() {
+        const groups = [];
             for (let i = 0; i < this.teachers.length; i += 3) {
                 groups.push(this.teachers.slice(i, i + 3));
             }
             return groups;
-        }
     }
+}
 }
 </script>
 
