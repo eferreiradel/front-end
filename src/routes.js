@@ -1,21 +1,14 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
-Vue.use(Router);
+import AppHome from "./components/layouts/AppHome.vue";
+import AppHome from "./components/layouts/AdvancedSearch.vue";
 
-
-const routes = [
-    // Define your routes here
-  ];
-
-  const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        { path: "/", name: "home", component: AppHome },
-        { path: "/projects", name: "projects", component: AppProjects },
-        { path: "/contact-me", name: "contact-me", component: AppContact },
-        { path: "/contact-me/thank-you", name: "message", component: AppMessage },
-    ],
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+      { path: "/", name: "home", component: AppHome },
+      { path: "/search", name: "search", component: AdvancedSearch },
+  ],
 });  
 
-export default router;
+export {router};
