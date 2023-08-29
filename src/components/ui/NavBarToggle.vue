@@ -3,6 +3,7 @@
         <i class="fa-solid fa-bars"></i>
     </div>
 </template>
+
 <script>
     export default {
         name: "NavBarToggle",
@@ -12,6 +13,7 @@
         },
     }
 </script>
+
 <style scoped style lang="scss">
     @import "../../style.scss";
     

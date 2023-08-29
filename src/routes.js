@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import AppHome from "./components/layouts/AppHome.vue";
-import AppHome from "./components/layouts/AdvancedSearch.vue";
+import AdvancedSearch from "./components/layouts/AdvancedSearch.vue";
 
 const router = createRouter({
   history: createWebHistory(),

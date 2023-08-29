@@ -1,26 +1,27 @@
 <template>
   <header>
-    <AppHeader></AppHeader>
+    <AppHeader />
   </header>
   <main>
-    <RouterView></RouterView>
+    <RouterView /> 
   </main>
 </template>
+
 <script>
 import AppHeader from './components/layouts/AppHeader.vue';
 
 export default {
   
   name: "App",
+  components: {
+    AppHeader
+  },
   data() {
     return {
       data: "okok",
       fetchedData: null,
     };
   },
-  components: {
-    AppHeader
-}
 };
 </script>
 
