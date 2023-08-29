@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import Jumbotron from '@/components/layouts/Jumbotron.vue'
+    import Jumbotron from '../components/layouts/Jumbotron.vue'
     export default {
         name: "AppHome",
         components: {
