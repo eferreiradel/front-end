@@ -21,17 +21,13 @@
 import NavBarToggle from "../ui/NavBarToggle.vue";
 import NavLink from "../ui/NavLink.vue";
 export default {
-    name: "NavBar",
-    data() {
-    return {
+name: "AppHeader",
 
-            }
-        },
-        components: {
-    NavBarToggle: NavBarToggle,
-    NavLink
+components: {
+NavBarToggle: NavBarToggle,
+NavLink
 }
-    }
+}
 </script>
 <style scoped lang="scss">
 @import "../../style.scss";
