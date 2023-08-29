@@ -1,7 +1,8 @@
 <template>
     <div class="container-fluid navbar">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div class="container d-flex justify-content-between align-items-baseline">
             <NavBarToggle></NavBarToggle>
+            <NavLink label="Login"></NavLink>
             <div>
                 <svg width="122" height="33" viewBox="0 0 122 33" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="122" height="33" fill="url(#pattern0)"/>
@@ -17,17 +18,19 @@
     </div>
 </template>
 <script>
-    import NavBarToggle from "../ui/NavBarToggle.vue";
-    export default {
-        name: "NavBar",
-        data() {
-            return {
+import NavBarToggle from "../ui/NavBarToggle.vue";
+import NavLink from "../ui/NavLink.vue";
+export default {
+    name: "NavBar",
+    data() {
+    return {
 
             }
         },
         components: {
-            NavBarToggle: NavBarToggle,
-        }
+    NavBarToggle: NavBarToggle,
+    NavLink
+}
     }
 </script>
 <style scoped lang="scss">

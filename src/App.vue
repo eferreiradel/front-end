@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="container">
         <div class="row py-5 justify-content-center">
-          <div class="col-4 d-flex gap-5 flex-column">
+          <div class="col col-md-5 col-lg-4 d-flex gap-5 flex-column">
             <div>
               <MainSelect></MainSelect>
             </div>

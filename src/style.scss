@@ -2,7 +2,7 @@
 @import "./assets/scss/variables.scss";
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -19,6 +19,12 @@
 // * {
 //   border: 1px solid black;
 // }
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: $color__light;
+}
 
 button {
   padding: 0.5rem 1rem 0.5rem 1rem;
