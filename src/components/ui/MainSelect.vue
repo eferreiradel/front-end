@@ -1,35 +1,60 @@
 <template>
+    <SubjectPannel v-if="this.isPannelVisible"  @close-pannel="closePannel"></SubjectPannel>
     <div class="mainContainer">
-            <div class="dropDown-items">
-                <ul>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
-            <div class="p-0 d-flex">
-                <div class="mainSelect">
-                    Cosa vuoi imparare?
+            <div class="d-md-block modal__small" v-if="this.isPannelVisible">
+                <div class="container d-flex flex-column px-0">
+                    <div class="d-flex justify-content-end px-0">
+                        <i @click="closePannel()" class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="text-">
+                        Top Materie
+                    </div>
+                    <div>
+                        <li>
+                            Matematica
+                        </li>
+                        <li>
+                            Inglese
+                        </li>
+                        <li>
+                            Francese
+                        </li>
+                    </div>
                 </div>
-                <div class="mainSelect__button">
-                    <i class="fa-solid fa-chevron-up"></i>
-                </div>
+        </div>
+        <div class="p-0 d-flex">
+            <div class="mainSelect">
+                Cosa vuoi imparare?
             </div>
+            <div class="mainSelect__button" @click="this.showPannel()">
+                <i class="fa-solid fa-chevron-up"></i>
+            </div>
+        </div>
         </div>
 </template>
 <script>
+import SubjectPannel from './SubjectPannel.vue';
+
     export default {
-        name: "MainSelect",
-        data() {
-            return {
-                
-            }
+    name: "MainSelect",
+    data() {
+        return {
+            isPannelVisible: false,
+        };
+    },
+    props: {
+        placeholder: String,
+    },
+    methods: {
+        showPannel() {
+            this.isPannelVisible = true;
         },
-        props: {
-            placeholder: String,
+        closePannel() {
+            this.isPannelVisible = false;
         }
-    }
+    },
+    components: { SubjectPannel }
+}
 </script>
 <style scoped style lang="scss">
     @import "../../style.scss";
@@ -48,8 +73,8 @@
 
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     
 
     display: flex;
@@ -57,8 +82,25 @@
     align-items: center;
 }
 i {
-    color: $color__primary;
+    color: black;
        
+}
+.modal__small {
+    background-color: blue;
+    position: absolute;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    bottom: 70px;
+    right: 0;
+}
+
+.modal-hider {
+    background-color: blue;
+    overflow: hidden;
+    height: 50px;
 }
 
 .mainContainer {
@@ -74,7 +116,7 @@ i {
     background-color: $color__light;
 }
 .mainSelect__button {
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     border-right: 1px solid black;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -83,7 +125,7 @@ i {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    background-color: $color__primary;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
 
 
