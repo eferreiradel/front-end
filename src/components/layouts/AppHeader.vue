@@ -2,7 +2,6 @@
     <div class="container-fluid navbar">
         <div class="container d-flex justify-content-between align-items-baseline">
             <NavBarToggle></NavBarToggle>
-            <NavLink label="Login"></NavLink>
             <div>
                 <svg width="122" height="33" viewBox="0 0 122 33" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="122" height="33" fill="url(#pattern0)"/>
@@ -17,27 +16,27 @@
         </div>
     </div>
 </template>
+
 <script>
 import NavBarToggle from "../ui/NavBarToggle.vue";
-import NavLink from "../ui/NavLink.vue";
-export default {
-name: "AppHeader",
 
-components: {
-NavBarToggle: NavBarToggle,
-NavLink
-}
-}
-</script>
-<style scoped lang="scss">
-@import "../../style.scss";
-.navbar {
-    background-color: $color__primary;
-    // padding: 1rem auto;
-    height: $navbar__height;
-    // border-bottom: 1px solid black;
-    i {
-        color: white;
+export default {
+    name: "AppHeader",
+    components: {
+        NavBarToggle: NavBarToggle,
     }
 }
+</script>
+
+<style scoped lang="scss">
+    @import "../../style.scss";
+    .navbar {
+        background-color: $color__primary;
+        // padding: 1rem auto;
+        height: $appheader__height;
+        // border-bottom: 1px solid black;
+        i {
+            color: white;
+        }
+    }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <header>
-    <SubjectPannel></SubjectPannel>
-    <AppHeader></AppHeader>
+    <AppHeader />
   </header>
   <main>
-    <RouterView></RouterView>
+    <RouterView /> 
   </main>
 </template>
+
 <script>
 import AppHeader from './components/layouts/AppHeader.vue';
 import SubjectPannel from './components/ui/SubjectPannel.vue';
