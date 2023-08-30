@@ -13,7 +13,7 @@
         data() {
             return {
                 store,
-                currentPage:1
+                currentPage:1,
             }
         },
         methods:{ 
@@ -53,9 +53,12 @@
                     
                     })
                 }
-            }},
-
-    };
+            }  
+        },
+        mounted(){
+            this.store.putFilteredUsers(this.$route.params.term);
+        }
+    }
 
 
 </script>

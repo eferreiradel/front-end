@@ -55,7 +55,8 @@ export default {
             },
         }
     },mounted(){
-        console.log(this.store.users);
+        // console.log(this.store.users);
+        this.store.putAllUsers();
     }
 //     computed: {
 //     teacherGroups() {

@@ -23,7 +23,7 @@
                 </div>
         </div>
         <div class="p-0 d-flex">
-            <input @keyup.enter="searchSubjects()" v-model="search" class="mainSelect" placeholder="Cosa vuoi imparare?">
+            <input @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" class="mainSelect" placeholder="Cosa vuoi imparare?">
             <div class="mainSelect__button" @click="this.showPannel()">
                 <i class="fa-solid fa-chevron-up"></i>
             </div>
@@ -32,13 +32,15 @@
 </template>
 <script>
 import SubjectPannel from './SubjectPannel.vue';
+import {store} from '../../store'
 
     export default {
     name: "MainSelect",
     data() {
         return {
+            store,
             isPannelVisible: false,
-            search:""
+            searchTerm:""
         };
     },
     props: {
@@ -51,8 +53,9 @@ import SubjectPannel from './SubjectPannel.vue';
         closePannel() {
             this.isPannelVisible = false;
         },
-        searchSubjects(){
-            this.$router.push({ name: 'search', params: { term: this.search } });
+        goToAdvancedSearch(){
+            this.store.putFilteredUsers(this.searchTerm);
+            this.$router.push({ name: 'search', params: { term: this.searchTerm } });
         }
 
     },
