@@ -2,7 +2,7 @@
     <div class="jumbotron mt-5">
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="col col-md-7 col-lg-5  d-flex flex-column gap-1">
+                <div class="col col-md-7 col-lg-5 col-xl-5  d-flex flex-column gap-1">
                     <h3>Trova</h3>
                     <h2>L'INSEGNANTE</h2>
                     <h1>ideale</h1>
@@ -11,7 +11,7 @@
                         <MainSelect></MainSelect>
                     </div>
                 </div>
-                <div class="img-container col-md-5 col-lg-3 py-3 px-0 d-flex align-items-center">
+                <div class="img-container col-md-5 col-lg-3 col-xl-5 py-3 px-0 d-flex align-items-center">
                     <img class="img-fluid" src="../../../public/images/5894781.jpg" alt="">
                 </div>
             </div>
