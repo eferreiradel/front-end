@@ -1,6 +1,6 @@
 <template>
     <div class="d-md-none">
-        <SubjectPannel v-if="this.isPannelVisible"  @close-pannel="closePannel"></SubjectPannel>
+        <SubjectPannel v-if="this.isPannelVisible" @close-pannel="closePannel"></SubjectPannel>
     </div>
     <div class="mainContainer">
             <div class="d-none d-md-block modal__small" v-if="this.isPannelVisible">
@@ -36,12 +36,15 @@
 </template>
 <script>
 import SubjectPannel from './SubjectPannel.vue';
+import {store} from '../../store'
 
     export default {
     name: "MainSelect",
     data() {
         return {
+            store,
             isPannelVisible: false,
+            searchTerm:""
         };
     },
     props: {
@@ -53,7 +56,12 @@ import SubjectPannel from './SubjectPannel.vue';
         },
         closePannel() {
             this.isPannelVisible = false;
+        },
+        goToAdvancedSearch(){
+            this.store.putFilteredUsers(this.searchTerm);
+            this.$router.push({ name: 'search', params: { term: this.searchTerm } });
         }
+
     },
     components: { SubjectPannel }
 }

@@ -2,7 +2,7 @@
 <script>
     import axios from 'axios';
     import {store} from '../store'
-    import Jumbotron from '../components/layouts/Jumbotron.vue'
+    import Jumbotron from '../components/layouts/jumbotron.vue'
     import TeacherCard from '../components/TeacherCard.vue'
     export default {
         name: "AdvancedSearch",
@@ -13,7 +13,7 @@
         data() {
             return {
                 store,
-                currentPage:1
+                currentPage:1,
             }
         },
         methods:{ 
@@ -53,9 +53,12 @@
                     
                     })
                 }
-            }},
-
-    };
+            }  
+        },
+        mounted(){
+            this.store.putFilteredUsers(this.$route.params.term);
+        }
+    }
 
 
 </script>
@@ -80,7 +83,7 @@
 <style scoped>
 
 .card_container{
-    width: calc(100% / 4 - 40px );
+    width: calc(100% / 4 - 45px );
     margin: 20px;
 }
 

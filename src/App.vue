@@ -3,17 +3,16 @@
     <AppHeader />
   </header>
   <main>
-    <RouterView /> 
+    <RouterView />
   </main>
 </template>
 
 <script>
 import AppHeader from './components/layouts/AppHeader.vue';
-import {store} from '../src/store'
-import axios from 'axios';
+import { store } from '../src/store'
 
 export default {
-  
+
   name: "App",
   components: {
     AppHeader
@@ -24,23 +23,25 @@ export default {
       data: "okok",
       fetchedData: null,
     };
-  },methods:{
-      getApi(){
-            axios.get(store.apiUrl).then(response => {
-                store.users = response.data.data
-                store.loading = false
-                store.lastPage = response.data.last_page
-                console.log(store.lastPage);
-            
-            })
-            }, 
+  }, methods: {
+    // getApi() {
+    //   axios.get(store.apiUrl).then(response => {
+    //     store.users = response.data.data
+    //     store.loading = false
+    //     store.lastPage = response.data.last_page
+    //     console.log(store.lastPage);
 
-            // aggiungere catch
-            
-  },mounted(){
-    this.getApi()
+    //   }).catch(err => {
+    //     store.loading = false;
+    //     this.$router.push({ name: 'error', params: { code: 404 } })
+    //   });
+
+
+    // }
+  }, mounted() {
+    // this.store.getApi();
   }
-  }
+}
 
 </script>
 
@@ -51,10 +52,11 @@ export default {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+}</style>

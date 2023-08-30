@@ -1,34 +1,39 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <h2 class="my-4 text-center">Prof in Evidenza</h2>
-            <Splide :options="splideOptions">
-                <template v-for="(teacherGroup, index) in teacherGroups" :key="index">
-                    <SplideSlide>
-                        <div class="d-flex justify-content-evenly mb-4">
-                            <TeacherCard />
-                        </div>
-                    </SplideSlide>
-                </template>
-            </Splide>
+    <template v-if="!store.loading">
+        <div class="container">
+            <div class="row">
+                <h2 class="my-4 text-center">Prof in Evidenza</h2>
+                <Splide :options="splideOptions">
+                    <template v-for="(user, index) in store.users" :key="index">
+                        <SplideSlide>
+                            <div class="d-flex justify-content-evenly mb-4">
+                                <TeacherCard :teacher="user"/>
+                            </div>
+                        </SplideSlide>
+                    </template>
+                </Splide>
+            </div>
         </div>
-    </div>
+    </template>
+  
 </template>
 
 <script>
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
 import TeacherCard from '../TeacherCard.vue'
+import {store} from '../../store.js'
 
 export default {
     name: "SliderHome",
     components: {
         Splide,
         SplideSlide,
-        TeacherCard
+        TeacherCard,
     },
     data() {
         return {
+            store,
             splideOptions: {
                 type: 'loop',
                 perPage: 3,
@@ -48,40 +53,20 @@ export default {
                     }
                 }
             },
-            teachers: [
-                {
-                    name: "Mario",
-                    description: "Discord clone",
-                    subject: "Matematica"
-                },
-                {
-                    name: "Mario",
-                    description: "Discord clone",
-                },
-                {
-                    name: "Mario",
-                    description: "Dropbox clone",
-                },
-                {
-                    name: "Mario",
-                    description: "What's App Web  clone",
-                },
-                {
-                    name: "Mario",
-                    description: "Dc Comics  clone",
-                },
-            ]
         }
-    },
-    computed: {
-    teacherGroups() {
-        const groups = [];
-            for (let i = 0; i < this.teachers.length; i += 3) {
-                groups.push(this.teachers.slice(i, i + 3));
-            }
-            return groups;
+    },mounted(){
+        // console.log(this.store.users);
+        this.store.putAllUsers();
     }
-}
+//     computed: {
+//     teacherGroups() {
+//         const groups = [];
+//             for (let i = 0; i < this.store.users.length; i += 3) {
+//                 groups.push(this.store.users.slice(i, i + 3));
+//             }
+//             return groups;
+//     }
+// }
 }
 </script>
 
