@@ -1,8 +1,8 @@
 <template>
     <div class="card shadow border" style="width: 18rem;">
-        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="card-img-top rounded-circle ps-5 pe-5 mt-4" alt="Nome Cognome">
+        <img :src="teacher.profile_image" class="card-img-top rounded-circle ps-5 pe-5 mt-4" alt="Nome Cognome">
         <div class="card-body d-flex flex-column align-items-center">
-            <h5 class="card-title m-0">{{(teacher && teacher.name) ?? "Nome Cognome"}}</h5>
+            <h5 class="card-title m-0">{{ teacher.name }} {{ teacher.surname }}</h5>
             <p class="card-text m-0 p-3">
                 <span class="fa fa-star fs-5 checked"></span>
                 <span class="fa fa-star fs-4 checked"></span>
@@ -16,7 +16,7 @@
                 <div class="subject p-2 m-1 rounded border text-center">Informatica</div>
                 <div class="subject p-2 m-1 rounded border text-center">Geografia</div>
             </div>
-            <p class="card-text fw-bold p-3 m-0">{{(teacher && teacher.price_for_hour) ?? "0€/ora"}}</p>
+            <p class="card-text fw-bold p-3 m-0">{{(teacher && teacher.price_for_hour) ?? "0€/ora"}} €/ora</p>
             <PrimaryButton btnText="CONTATTA" class="w-100"/>
         </div>
     </div>

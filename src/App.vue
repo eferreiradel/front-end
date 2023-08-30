@@ -32,15 +32,16 @@ export default {
                 store.lastPage = response.data.last_page
                 console.log(store.lastPage);
             
-            })
-            }, 
+            }).catch(err => {
+              store.loading = false;
+              this.$router.push({ name: 'error', params: { code: 404 } })
+              });
+           
 
-            // aggiungere catch
-            
-  },mounted(){
-    this.getApi()
-  }
-  }
+      }},mounted(){
+      this.getApi()
+      }
+      }
 
 </script>
 

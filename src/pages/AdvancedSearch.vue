@@ -80,7 +80,7 @@
 <style scoped>
 
 .card_container{
-    width: calc(100% / 4 - 40px );
+    width: calc(100% / 4 - 45px );
     margin: 20px;
 }
 
