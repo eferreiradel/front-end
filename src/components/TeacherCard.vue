@@ -11,10 +11,9 @@
                 <span class="fa fa-star fs-5"></span>
             </p>
             <div class="subjects d-flex flex-wrap justify-content-center align-items-center" style="height: 100px;">
-                <div class="subject p-2 rounded m-1 border text-center">Matematica</div>
-                <div class="subject p-2 m-1 rounded border text-center">Italiano</div>
-                <div class="subject p-2 m-1 rounded border text-center">Informatica</div>
-                <div class="subject p-2 m-1 rounded border text-center">Geografia</div>
+                <template v-for="subject in teacher.subjects">
+                    <div class="subject p-2 rounded m-1 border text-center">{{subject.name}}</div>
+                </template>
             </div>
             <p class="card-text fw-bold p-3 m-0">{{(teacher && teacher.price_for_hour) ?? "0€/ora"}} €/ora</p>
             <PrimaryButton btnText="CONTATTA" class="w-100"/>
