@@ -2,7 +2,7 @@
 <script>
     import axios from 'axios';
     import {store} from '../store'
-    import Jumbotron from '../components/layouts/Jumbotron.vue'
+    import Jumbotron from '../components/layouts/jumbotron.vue'
     import TeacherCard from '../components/TeacherCard.vue'
     export default {
         name: "AdvancedSearch",
