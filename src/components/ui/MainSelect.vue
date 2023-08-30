@@ -1,7 +1,9 @@
 <template>
-    <SubjectPannel v-if="this.isPannelVisible"  @close-pannel="closePannel"></SubjectPannel>
+    <div class="d-md-none">
+        <SubjectPannel v-if="this.isPannelVisible"  @close-pannel="closePannel"></SubjectPannel>
+    </div>
     <div class="mainContainer">
-            <div class="d-md-block modal__small" v-if="this.isPannelVisible">
+            <div class="d-none d-md-block modal__small" v-if="this.isPannelVisible">
                 <div class="container d-flex flex-column px-0">
                     <div class="d-flex justify-content-end px-0">
                         <i @click="closePannel()" class="fa-solid fa-xmark"></i>
@@ -26,7 +28,7 @@
             <div class="mainSelect">
                 Cosa vuoi imparare?
             </div>
-            <div class="mainSelect__button" @click="this.showPannel()">
+            <div type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" class="mainSelect__button" @click="this.showPannel()">
                 <i class="fa-solid fa-chevron-up"></i>
             </div>
         </div>

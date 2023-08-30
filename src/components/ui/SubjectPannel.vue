@@ -1,30 +1,18 @@
 <template>
-    <!-- mobile screen -->
-    <div class="overlay container-fluid px-0 d-md-none">
-        <div class="modal__open w-100">
-            <div class="container d-flex flex-column px-0">
-                <div class="d-flex justify-content-end px-0">
-                    <i @click="closePannel()" class="fa-solid fa-xmark"></i>
-                </div>
-                <div class="text-">
-                    Top Materie
-                </div>
-                <div>
-                    <li>
-                        Matematica
-                    </li>
-                    <li>
-                        Inglese
-                    </li>
-                    <li>
-                        Francese
-                    </li>
-                </div>
-            </div>
-        </div>
+ <div class="offcanvas offcanvas-bottom h-100" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <ul>
+      <li v-for="subject in subjects" :key="subject.id">{{ subject.nome }}</li>
+    </ul>
     </div>
-    <!-- large screen -->
-    
+   
+  </div>
+</div>
 </template>
 <script>
 import axios from 'axios';
@@ -33,12 +21,23 @@ export default {
     name:"SubjectPannel",
     data() {
         return {
-                 
-            // apiURL,
-            // lezioni,
+          subjects: []
+
         }
     },
-    props: {
+    methods: {
+      async getDataFromApi() {
+        axios.get('http://localhost:8000/api/subjects')
+        .then(response => {
+          this.subjects = response.data;
+        })
+        .catch(error => {
+          console.error('Error fetching subjects:', error);
+        });
+      },
+    },
+    mounted() {
+      this.getDataFromApi();
     },
     
     methods: {
