@@ -1,7 +1,7 @@
 <template>
     <a href="/">
         <div class="logo">
-            <svg width="122" height="33" viewBox="0 0 122 33" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="150" height="40.73" viewBox="0 0 122 33" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="122" height="33" fill="url(#pattern0)"/>
                 <defs>
                 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
