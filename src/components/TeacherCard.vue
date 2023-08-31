@@ -16,7 +16,7 @@
                 </template>
             </div>
             <p class="card-text fw-bold p-3 m-0">{{(teacher && teacher.price_for_hour) ?? "0€/ora"}} €/ora</p>
-            <PrimaryButton btnText="CONTATTA" class="w-100"/>
+            <PrimaryButton @click="goToShowTeacher" btnText="INFORMAZIONI" class="w-100"/>
         </div>
     </div>
 
@@ -33,6 +33,11 @@
         props: {
             teacher: Object
         },
+        methods: {
+            goToShowTeacher(){
+                this.$router.push({ name: 'showTeacher', params: { userId: this.teacher.id } });
+            }
+        }
     }
 </script>
 <style>

@@ -15,7 +15,6 @@ export const store = reactive({
             this.users = response.data.data
             this.requestsOnLoading -= 1
             this.lastPage = response.data.last_page
-            console.log(this.lastPage);
 
         }).catch(err => {
             this.loading = false;
@@ -29,7 +28,6 @@ export const store = reactive({
             this.users = response.data.data
             this.requestsOnLoading -= 1
             this.lastPage = response.data.last_page
-            console.log(this.lastPage);
 
         }).catch(err => {
             this.requestsOnLoading -= 1
@@ -45,6 +43,21 @@ export const store = reactive({
                 const subjectNames = subjects.map(subject => subject.name)
                 this.requestsOnLoading -= 1
                 resolve(subjectNames);
+            }).catch(err => {
+                this.requestsOnLoading -= 1
+                this.$router.push({ name: 'error', params: { code: 404 } })
+                reject(err);
+            });
+        });
+    },
+
+    getUserById(userId){
+        this.requestsOnLoading += 1
+        return new Promise((resolve, reject) => {
+            axios.get(this.apiUrl + 'users/' + userId).then(response => {
+                this.requestsOnLoading -= 1
+                const user = response.data
+                resolve(user);
             }).catch(err => {
                 this.requestsOnLoading -= 1
                 this.$router.push({ name: 'error', params: { code: 404 } })
