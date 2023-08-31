@@ -1,5 +1,6 @@
 <template>
-    <template v-if="!store.loading">
+    {{ store.requestsOnLoading }}
+    <template v-if="!store.requestsOnLoading">
         <div class="container">
             <div class="row">
                 <h2 class="my-4 text-center">Prof in Evidenza</h2>

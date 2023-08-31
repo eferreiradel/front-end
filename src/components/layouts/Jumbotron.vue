@@ -28,11 +28,13 @@
 <script>
     import MainSelect from "../ui/MainSelect.Vue"
     import SubjectPannel from "../ui/SubjectPannel.vue";
+    import {store} from '../../store.js'
+
     export default {
     name: "Jumbotron",
     data() {
         return {
-            
+            store,
         }
     },
     methods: {
@@ -41,6 +43,8 @@
     components: {
         MainSelect,
         SubjectPannel
+    },
+    mounted(){
     }
     }
 </script>

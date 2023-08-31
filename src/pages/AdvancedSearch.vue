@@ -25,6 +25,7 @@
                     }
                     };
 
+                    store.loading = true
                     axios.get(store.apiUrl, config).then(response => {
                         store.users = response.data.data
                         store.loading = false
@@ -45,6 +46,7 @@
                     }
                     };
 
+                    store.loading = true
                     axios.get(store.apiUrl, config).then(response => {
                     store.users = response.data.data
                     store.loading = false

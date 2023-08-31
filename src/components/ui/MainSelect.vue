@@ -24,12 +24,14 @@
                     </div>
                 </div>
         </div>
-        <div class="p-0 d-flex">
+        <!-- <div class="p-0 d-flex">
             <input @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" class="mainSelect" placeholder="Cosa vuoi imparare?">
             <div type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" class="mainSelect__button" @click="this.showPannel()">
                 <i class="fa-solid fa-chevron-up"></i>
             </div>
-        </div>
+        </div> -->
+        <v-autocomplete @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" v-if="allSubjectsName" label="Cosa vuoi imparare?" :items="allSubjectsName" multiple
+></v-autocomplete>
         </div>
 </template>
 <script>
@@ -42,7 +44,8 @@ import {store} from '../../store'
         return {
             store,
             isPannelVisible: false,
-            searchTerm:""
+            searchTerm: null,
+            allSubjectsName: []
         };
     },
     props: {
@@ -56,12 +59,18 @@ import {store} from '../../store'
             this.isPannelVisible = false;
         },
         goToAdvancedSearch(){
+            this.searchTerm = this.searchTerm.join(',');
             this.store.putFilteredUsers(this.searchTerm);
             this.$router.push({ name: 'search', params: { term: this.searchTerm } });
         }
 
     },
-    components: { SubjectPannel }
+    components: { SubjectPannel },
+    mounted(){
+        this.store.getAllSubjectsName().then(subjectNames => {
+            this.allSubjectsName = subjectNames;
+        });
+    }
 }
 </script>
 <style scoped style lang="scss">
