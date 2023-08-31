@@ -21,10 +21,9 @@
     @import "../../style.scss";
 
     button {
-    background-color: $color__primary;
-    border: 1px solid #000;
-    color: black;
-    
+        background-color: $color__primary;
+        border: 1px solid #000;
+        color: black;
     } 
 
 </style>

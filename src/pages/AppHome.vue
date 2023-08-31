@@ -3,7 +3,6 @@
     <SliderHome />
     <BulletPoints />
     <CallToAction />
-    <CallToAction />
 </template>
 
 <script>
