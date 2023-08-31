@@ -25,9 +25,7 @@
                 </div>
         </div>
         <div class="p-0 d-flex">
-            <div class="mainSelect">
-                Cosa vuoi imparare?
-            </div>
+            <input @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" class="mainSelect" placeholder="Cosa vuoi imparare?">
             <div type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" class="mainSelect__button" @click="this.showPannel()">
                 <i class="fa-solid fa-chevron-up"></i>
             </div>
