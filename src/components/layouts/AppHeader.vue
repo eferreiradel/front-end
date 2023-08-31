@@ -8,16 +8,16 @@
                             <AppHeaderToggle></AppHeaderToggle>
                         </div>
                         <div class="d-none d-lg-block">
-                            <nav>
-                                <div class="d-flex gap-5">
-                                    <a href="@">Accedi</a>
-                                    <a href="@">Professori</a>
-                                </div>
-                            </nav>
-                        </div>
-                        <div class="">
+                            <div class="">
                             <Logo></Logo>
                         </div>
+                        </div>
+                        <nav>
+                            <div class="d-flex gap-5">
+                                <a href="http://127.0.0.1:8000/">Accedi</a>
+                                <a href="/search">Professori</a>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
