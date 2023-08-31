@@ -14,8 +14,8 @@
                         </div>
                         <nav>
                             <div class="d-flex gap-5">
-                                <a href="http://127.0.0.1:8000/">Accedi</a>
-                                <a href="/search">Professori</a>
+                                <a href="http://127.0.0.1:8000/login">Accedi</a>
+                                <a href="http://127.0.0.1:8000/register">Dare lezioni</a>
                             </div>
                         </nav>
                     </div>
