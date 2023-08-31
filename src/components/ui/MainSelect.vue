@@ -59,9 +59,15 @@ import {store} from '../../store'
             this.isPannelVisible = false;
         },
         goToAdvancedSearch(){
-            this.searchTerm = this.searchTerm.join(',');
-            this.store.putFilteredUsers(this.searchTerm);
-            this.$router.push({ name: 'search', params: { term: this.searchTerm } });
+            if (this.searchTerm) {
+                this.searchTerm = this.searchTerm.join(',');
+                this.store.putFilteredUsers(this.searchTerm);
+                this.$router.push({ name: 'search', params: { term: this.searchTerm } });
+            } else {
+                this.store.putFilteredUsers("");
+                this.$router.push({ name: 'search', params: { term: "" } });
+            }
+            
         }
 
     },
@@ -100,7 +106,7 @@ import {store} from '../../store'
 }
 i {
     color: black;
-       
+
 }
 .modal__small {
     background-color: blue;

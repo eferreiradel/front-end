@@ -75,6 +75,13 @@
             padding: 1rem 2rem;
             border-radius: 25px;
             margin-top: 2rem;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: $color__light !important;
+            color: #000;
+            border: 1px solid #000;
         }
     }
 </style>

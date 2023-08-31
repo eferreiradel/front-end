@@ -48,3 +48,7 @@ li {
   list-style: none;
   font-weight: bolder;
 }
+
+.splide__pagination__page.is-active {
+  background: $color__primary !important;
+}

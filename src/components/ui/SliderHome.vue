@@ -1,5 +1,4 @@
 <template>
-    {{ store.requestsOnLoading }}
     <template v-if="!store.requestsOnLoading">
         <div class="container">
             <div class="row">
@@ -16,7 +15,6 @@
             </div>
         </div>
     </template>
-  
 </template>
 
 <script>
@@ -71,7 +69,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "../../style.scss";
 
     h2, h4, p {
         margin: 0;

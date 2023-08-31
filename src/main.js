@@ -1,13 +1,14 @@
 //vuetify
+import '@splidejs/vue-splide'
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { createApp } from 'vue'
 
+
 import './style.scss'
 import App from './App.vue'
-import '@splidejs/vue-splide'
 
 const vuetify = createVuetify({
     components,

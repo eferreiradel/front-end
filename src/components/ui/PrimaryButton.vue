@@ -24,6 +24,13 @@
         background-color: $color__primary;
         border: 1px solid #000;
         color: black;
-    } 
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: $color__light !important;
+        color: #000;
+        border: 1px solid #000;
+    }
 
 </style>
