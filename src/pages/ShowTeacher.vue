@@ -12,6 +12,7 @@
                         <span :class="teacherData.avg_vote >= 4 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
                         <span :class="teacherData.avg_vote >= 5 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
                     </p>
+                    <p>({{ teacherData.total_votes }} voti)</p>
                     <div class="d-flex gap-3 bg-light text-dark rounded-pill py-2 px-5 justify-content-around">
                         <div class="d-flex flex-column align-items-center p-2">
                             <h5>Città</h5>
