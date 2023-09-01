@@ -27,7 +27,7 @@ import {store} from '../../store'
             this.isPannelVisible = false;
         },
         goToAdvancedSearch(){
-            if (this.searchTerm) {
+            if (this.searchTerm && this.searchTerm != '') {
                 this.searchTerm = this.searchTerm.join(',');
                 this.store.putFilteredUsers(this.searchTerm, "");
 
