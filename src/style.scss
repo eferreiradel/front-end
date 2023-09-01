@@ -52,3 +52,8 @@ li {
 .splide__pagination__page.is-active {
   background: $color__primary !important;
 }
+
+.v-pagination .v-btn {
+  background-color: $color__primary !important;
+  color: white !important;
+}

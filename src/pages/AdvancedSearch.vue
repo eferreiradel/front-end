@@ -19,46 +19,27 @@
                 currentPage:1,
             }
         },
-        methods:{ 
-            nextPage(){
-                if(this.currentPage < store.lastPage){
-                    let config = {
-                        params:{
-                        page: (this.currentPage + 1)
-                    }
-                    };
-
-                    store.loading = true
-                    axios.get(store.apiUrl + "users", config).then(response => {
-                        store.users = response.data.data
-                        store.loading = false
-                        store.lastPage = response.data.last_page
-                        this.currentPage = response.data.current_page
-                        console.log(this.store.lastPage);
-
-                    
-                    })
-
-                }
+        watch: {
+            currentPage() {
+                this.loadPage();
             },
-            prevPage(){
-                if(this.currentPage >= 1){
-                    let config = {
-                        params:{
-                        page: (this.currentPage - 1)
+        },
+        methods:{ 
+            loadPage() {
+                let config = {
+                    params:{
+                    page: this.currentPage
                     }
-                    };
+                };
 
-                    store.loading = true
-                    axios.get(store.apiUrl + "users", config).then(response => {
-                    store.users = response.data.data
-                    store.loading = false
-                    store.lastPage = response.data.last_page
-                    this.currentPage = response.data.current_page
-                    
-                    })
-                }
-            }  
+                store.loading = true;
+                axios.get(store.apiUrl + "users", config).then(response => {
+                    store.users = response.data.data;
+                    store.loading = false;
+                    store.lastPage = response.data.last_page;
+                    this.currentPage = response.data.current_page;
+                });
+            }
         },
         mounted(){
             this.store.putFilteredUsers(this.$route.params.term);
@@ -76,16 +57,23 @@
             </div>
             <p v-if="store.loading" class="m-3">Sta caricando...</p>
             <div class="d-flex flex-column justify-content-center align-items-center">
+                <v-pagination class="my-4"
+                    v-model="currentPage"
+                    :length="store.lastPage"
+                    :total-visible="5"
+                ></v-pagination>
+
                 <div class="d-md-flex flex-wrap gap-2 justify-content-center">
                     <div v-for="user in store.users">
                         <TeacherCard :teacher="user" />
                     </div>
                 </div>
-                <!-- <h5 class="ms-5">Pagina corrente({{this.currentPage}} di {{ store.lastPage }})</h5> -->
-                <div class="my-5">
-                    <button class="my-btn btn me-4" @click="prevPage()">Pagina precedente</button>
-                    <button class="my-btn btn" @click="nextPage()">Pagina successiva</button>
-                </div>
+
+                <v-pagination class="my-4"
+                    v-model="currentPage"
+                    :length="store.lastPage"
+                    :total-visible="5"
+                ></v-pagination>
             </div>
         </div>
     </div>
@@ -93,6 +81,7 @@
 
 <style  scoped lang="scss">
     @import "../style.scss";
+
     .card_container{
         width: calc(100% / 4 - 45px );
         margin: 20px;
