@@ -1,13 +1,6 @@
 <template>
-    <div class="d-md-none">
-        <SubjectPannel v-if="this.isPannelVisible" @close-pannel="closePannel"></SubjectPannel>
-    </div>
-    <div class="mainContainer">
-        <div class="col col-md-8">
             <v-autocomplete @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" v-if="allSubjectsName" label="Cosa vuoi imparare?" :items="allSubjectsName" multiple>
             </v-autocomplete>
-        </div>
-        </div>
 </template>
 <script>
 import SubjectPannel from './SubjectPannel.vue';
@@ -36,15 +29,19 @@ import {store} from '../../store'
         goToAdvancedSearch(){
             if (this.searchTerm) {
                 this.searchTerm = this.searchTerm.join(',');
-                this.store.putFilteredUsers(this.searchTerm);
-                this.$router.push({ name: 'search', params: { term: this.searchTerm } });
-            } else {
-                this.store.putFilteredUsers("");
-                this.$router.push({ name: 'search', params: { term: "" } });
-            }
-            
-        }
+                this.store.putFilteredUsers(this.searchTerm, "");
 
+                this.$router.push({ 
+                    name: 'search', 
+                    query: { subjects: this.searchTerm} 
+                });
+            } else {
+                this.store.putFilteredUsers("", "");
+                this.$router.push({ 
+                    name: 'search'
+                });
+            }
+        },
     },
     components: { SubjectPannel },
     mounted(){

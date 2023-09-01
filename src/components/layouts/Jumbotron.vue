@@ -10,7 +10,7 @@
                                 <h2>insegnante</h2>
                                 <h1>ideale</h1>
                                 <p>Online o in presenza,<br> scegli tra migliaia di insegnanti</p>
-                                <div class="mt-5">
+                                <div class="mt-5 col-12 col-md-8">
                                     <MainSelect></MainSelect>
                                 </div>
                             </div>
