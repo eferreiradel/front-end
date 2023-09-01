@@ -17,6 +17,8 @@
             return {
                 store,
                 currentPage:1,
+                stars: [false, false, false, false, false],
+                lastSelectedIndex: -1,
             }
         },
         watch: {
@@ -39,6 +41,17 @@
                     store.lastPage = response.data.last_page;
                     this.currentPage = response.data.current_page;
                 });
+            },
+            switchStars(index){
+                if (index === this.lastSelectedIndex +1) {
+                    this.stars[index] = !this.stars[index];
+                    this.lastSelectedIndex = index; // Aggiorna l'indice dell'ultima stella selezionata
+                } 
+                console.log(this.lastSelectedIndex +1)
+            },
+            searchFilteredFromAvgVote(){
+                this.store.putFilteredUsers(this.lastSelectedIndex +1);
+                this.$router.push({ name: 'vote', params: { vote: this.lastSelectedIndex +1 } });
             }
         },
         mounted(){
@@ -54,6 +67,11 @@
         <div class="row">
             <div class="p-3 col-12 col-md-4">
                 <MainSelect />
+            </div>
+            <h5>Filtra per voto minimo</h5>
+            <div  class="stars d-flex flex-row align-items-center">
+                <div v-for="(star, index ) in stars " @click="switchStars(index)" :class="star ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></div>
+                <button class="ms-3" @click="searchFilteredFromAvgVote()">search</button>
             </div>
             <p v-if="store.loading" class="m-3">Sta caricando...</p>
             <div class="d-flex flex-column justify-content-center align-items-center">
