@@ -22,9 +22,9 @@ export const store = reactive({
         });
     },
 
-    putFilteredUsers(subject) {
+    putFilteredUsers(subject, minVote) {
         this.requestsOnLoading += 1
-        axios.get(this.apiUrl + 'users?subjects=' + subject).then(response => {
+        axios.get(this.apiUrl + 'users?subjects=' + subject + '&min-vote=' + minVote).then(response => {
             this.users = response.data.data
             this.requestsOnLoading -= 1
             this.lastPage = response.data.last_page
@@ -64,6 +64,6 @@ export const store = reactive({
                 reject(err);
             });
         });
-    }
+    },
     
 });

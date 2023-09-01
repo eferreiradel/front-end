@@ -11,7 +11,9 @@ const router = createRouter({
       { path: "/", name: "home", component: AppHome },
       { path: "/search/:term?", name: "search", component: AdvancedSearch },
       { path: "/error/:code", name: "error", component: ErrorPage },
-      { path: "/teacher/:userId", name: "showTeacher", component: ShowTeacher }
+      { path: "/teacher/:userId", name: "showTeacher", component: ShowTeacher },
+      { path: "/search/:term?/&min-vote:vote?", name: "vote", component: AdvancedSearch }
+
   ],
 });  
 
