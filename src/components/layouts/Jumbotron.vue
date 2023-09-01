@@ -4,10 +4,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-md-12">
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center mt-5 mt-md-2">
                             <div class="col col-md-6 col-lg-6 col-xl-6 justify-content-center  d-flex flex-column gap-1">
-                                <h3>Trova il</h3>
-                                <h2>tuo insegnante</h2>
+                                <h3>Trova il tuo</h3>
+                                <h2>insegnante</h2>
                                 <h1>ideale</h1>
                                 <p>Online o in presenza,<br> scegli tra migliaia di insegnanti</p>
                                 <div class="mt-5">
@@ -56,19 +56,19 @@
     @import "../../style.scss";
     .jumbotron {
         h1 {
-            font-size: 5rem;
+            font-size: 6rem;
             font-weight: 800;
             color: $color__secondary;
         }
 
         h2 {
-            font-size: 4rem;
+            font-size: 3.8rem;
             font-weight: 700;
             color: $color__dark;
         }
         
         h3 {
-            font-size: 4rem;
+            font-size: 3.8rem;
             font-weight: 700;
             color: $color__dark;
         }

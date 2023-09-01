@@ -26,7 +26,7 @@
     @import "../style.scss";
 
     .my-margin-jumbo {
-        margin-bottom: 8rem;
+        margin-bottom: 6rem;
     }
 
     .my-margin-slider {

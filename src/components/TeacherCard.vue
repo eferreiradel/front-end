@@ -3,7 +3,6 @@
         <img :src="teacher.profile_image" class="card-img-top rounded-circle ps-5 pe-5 mt-4" alt="Nome Cognome">
         <div class="card-body d-flex flex-column align-items-center">
             <h5 class="card-title m-0">{{ teacher.name }} {{ teacher.surname }}</h5>
-            <span>{{ teacher.avg_vote }}</span>
             <p class="card-text m-0 p-3">
                 <span :class="teacher.avg_vote >= 1 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
                 <span :class="teacher.avg_vote >= 2 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
