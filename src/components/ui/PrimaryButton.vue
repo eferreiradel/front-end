@@ -21,7 +21,7 @@
     @import "../../style.scss";
 
     button {
-        background-color: $color__primary;
+        background-color: $color__secondary;
         border: 1px solid #000;
         color: black;
         transition: 0.3s;

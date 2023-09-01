@@ -3,35 +3,10 @@
         <SubjectPannel v-if="this.isPannelVisible" @close-pannel="closePannel"></SubjectPannel>
     </div>
     <div class="mainContainer">
-            <div class="d-none d-md-block modal__small" v-if="this.isPannelVisible">
-                <div class="container d-flex flex-column px-0">
-                    <div class="d-flex justify-content-end px-0">
-                        <i @click="closePannel()" class="fa-solid fa-xmark"></i>
-                    </div>
-                    <div class="text-">
-                        Top Materie
-                    </div>
-                    <div>
-                        <li>
-                            Matematica
-                        </li>
-                        <li>
-                            Inglese
-                        </li>
-                        <li>
-                            Francese
-                        </li>
-                    </div>
-                </div>
+        <div class="col col-md-8">
+            <v-autocomplete @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" v-if="allSubjectsName" label="Cosa vuoi imparare?" :items="allSubjectsName" multiple>
+            </v-autocomplete>
         </div>
-        <!-- <div class="p-0 d-flex">
-            <input @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" class="mainSelect" placeholder="Cosa vuoi imparare?">
-            <div type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" class="mainSelect__button" @click="this.showPannel()">
-                <i class="fa-solid fa-chevron-up"></i>
-            </div>
-        </div> -->
-        <v-autocomplete @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" v-if="allSubjectsName" label="Cosa vuoi imparare?" :items="allSubjectsName" multiple
-></v-autocomplete>
         </div>
 </template>
 <script>

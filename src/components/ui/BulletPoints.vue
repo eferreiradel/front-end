@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <h1 class="fw-bolder mt-5">Imparare non è mai stato così facile!</h1>
+            <h1 class="text-center fw-bolder my-margin-text">Imparare non è mai stato così facile!</h1>
             <div class="col d-lg-flex">
                 <div class="col-12 col-lg-4 offset-lg-2 d-flex flex-column justify-content-center p-5">
                     <h2>Cerca</h2>
@@ -50,3 +50,15 @@
         },
     }
 </script>
+
+<style scoped lang="scss">
+    @import "../../style.scss";
+
+    .my-margin-text {
+        margin-bottom: 5rem;
+    }
+
+    h1 {
+        color: $color__dark;
+    }
+</style>

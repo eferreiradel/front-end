@@ -2,7 +2,7 @@
     <template v-if="!store.requestsOnLoading">
         <div class="container">
             <div class="row">
-                <h2 class="my-4 text-center">Prof in Evidenza</h2>
+                <h2 class="text-center">Insegnanti in evidenza</h2>
                 <Splide :options="splideOptions">
                     <template v-for="(user, index) in store.users" :key="index">
                         <SplideSlide>
@@ -78,6 +78,9 @@ export default {
 
     h2 {
         font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 5rem;
+        color: $color__dark;
     }
 
     h5 {

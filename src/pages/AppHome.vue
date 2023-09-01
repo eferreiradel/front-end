@@ -1,8 +1,8 @@
 <template>
-    <Jumbotron />
-    <SliderHome />
-    <BulletPoints />
-    <CallToAction />
+    <Jumbotron class="my-margin-jumbo"/>
+    <SliderHome class="my-margin-slider"/>
+    <BulletPoints class="" />
+    <CallToAction class="my-margin" />
 </template>
 
 <script>
@@ -21,4 +21,20 @@
         }
     }
 </script>
-<style></style>
+
+<style scoped lang="scss">
+    @import "../style.scss";
+
+    .my-margin-jumbo {
+        margin-bottom: 8rem;
+    }
+
+    .my-margin-slider {
+        margin-bottom: 12rem;
+    }
+
+    
+    .my-margin {
+        margin-bottom: 15rem;
+    }
+</style>
