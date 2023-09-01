@@ -6,11 +6,11 @@
                     <img :src="teacherData.profile_image" class="img-fluid rounded-circle mt-3 border border-3 border-white" alt="Nome Cognome">
                     <h3>{{ teacherData.name }} {{ teacherData.surname }}</h3>
                     <p class="card-text m-0">
-                        <span class="fa fa-star fs-5 checked"></span>
-                        <span class="fa fa-star fs-4 checked"></span>
-                        <span class="fa fa-star fs-3 checked"></span>
-                        <span class="fa fa-star fs-4"></span>
-                        <span class="fa fa-star fs-5"></span>
+                        <span :class="teacherData.avg_vote >= 1 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
+                        <span :class="teacherData.avg_vote >= 2 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
+                        <span :class="teacherData.avg_vote >= 3 ? 'fa fa-star fs-3 checked' : 'fa fa-star fs-3'"></span>
+                        <span :class="teacherData.avg_vote >= 4 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
+                        <span :class="teacherData.avg_vote >= 5 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
                     </p>
                     <div class="d-flex gap-3 bg-light text-dark rounded-pill py-2 px-5 justify-content-around">
                         <div class="d-flex flex-column align-items-center p-2">
