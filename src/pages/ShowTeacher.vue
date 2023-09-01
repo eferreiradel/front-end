@@ -1,7 +1,8 @@
 <template>
     <div v-if="teacherData" class="container">
         <div class="d-flex flex-column flex-md-row flex-wrap mt-5">
-            <div class="order-2 order-md-1 d-flex flex-column gap-5 col-12 col-md-6 col-lg-6 mt-3">
+            
+            <div class="order-2 order-md-2 order-lg-1 d-flex flex-column gap-3 col-12 col-md-12 col-lg-7 mt-3">
                 <div class="d-flex ps-4 flex-column gap-2">
                     <!-- <h5 class="p-4">{{ teacherData.name }} {{ teacherData.surname }}</h5> -->
                     <div class="m-0 w-100  p-4 my-rounded border">
@@ -18,10 +19,35 @@
                         </div>
                     </div>
                 </div>
+                <div class="ps-4">
+                    <button class="my-btn-container-static btn my-5 py-2 my-rounded my-bgGreen">
+                        CONTATTA
+                    </button>
+                </div>
+                <!-- FORM CONTATTA -->
+                <div class="p-4 ps-5">
+                    <h3 class="my-1">Contatta</h3>
+                    <div class="col-12 col-md-6">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="my-4">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required>
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="mb-4">
+                                <textarea name="content" id="content" class="form-control" placeholder="Messaggio" required></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" class="btn btn-primary">Invia</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
             
-            <div class="order-1 order-md-2 col-md-6">
-                <div class="my-bgGreen my-rounded col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 mt-3">
+            <div class="order-1 order-md-1 order-lg-2 col-12 col-md-12 col-lg-5">
+                <div class="my-bgGreen my-rounded col-12 col-lg-8 offset-lg-4 mt-3 p-2">
                     <div class="d-flex flex-column align-items-center text-white py-4 gap-3">
                         <img :src="teacherData.profile_image" class="img-fluid rounded-circle mt-3 border border-3 border-white" alt="Nome Cognome">
                         <h2>{{ teacherData.name }} {{ teacherData.surname }}</h2>
@@ -52,28 +78,44 @@
                 </div>
             </div>
         </div>
-        <div class="p-4 ps-5">
-            <h3 class="my-4">Contatta</h3>
-            <div class="col-12 col-md-6">
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <div class="my-4">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required>
-                    </div>
-                    <div class="mb-4">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
-                    </div>
-                    <div class="mb-4">
-                        <textarea name="content" id="content" class="form-control" placeholder="Messaggio" required></textarea>
-                    </div>
-                    <div class="mb-4">
-                        <button type="submit" class="btn btn-primary">Invia</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        
         <div class="d-flex flex-column gap-5 py-5 col-12">
             <div class="d-flex flex-column gap-2">
                 <h3 class="ps-5">Recensioni</h3>
+                <div class="p-4 ps-5">
+                    <span class="my-4">Lascia una recensione</span>
+                        <div class="col-12 col-md-6">
+
+                            <!-- FORM RECENSIONE -->
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="my-4">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required>
+                                </div>
+                                <div class="mb-4">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-4">
+                                    <textarea name="content" id="content" class="form-control" placeholder="Messaggio" required></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <button type="submit" class="btn btn-primary">Invia</button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center">
+                            <span class="mt-5 mb-4">Lascia una voto</span>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="my-4">
+                                    <span :class="teacherData.avg_vote >= 1 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
+                                    <span :class="teacherData.avg_vote >= 2 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
+                                    <span :class="teacherData.avg_vote >= 3 ? 'fa fa-star fs-3 checked' : 'fa fa-star fs-3'"></span>
+                                    <span :class="teacherData.avg_vote >= 4 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
+                                    <span :class="teacherData.avg_vote >= 5 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 <div class="d-flex flex-column gap-4">
                     <div v-for="review in teacherData.review" class="m-0 w-100 my-rounded border p-4 px-5">
                         <h5>{{ review.name }}</h5>
@@ -85,8 +127,8 @@
         <div class="container">
             <div class="row">
                 <div class="mx-auto d-flex justify-content-center align-items-center">
-                    <button class="w-50 my-btn-container btn text-light my-3 fs-3 py-3 position-fixed bottom-0 my-rounded my-bgGreen w-100 text-center">
-                        CONTATTA {{ teacherData.name }}
+                    <button class="w-50 my-btn-container btn my-3 fs-5 py-3 position-fixed bottom-0 my-rounded my-bgGreen w-100 text-center">
+                        CONTATTA
                     </button>
                 </div>
             </div>
@@ -136,7 +178,26 @@
     }
 
     .my-btn-container {
+        color: $color__dark;
         max-width: 300px;
+        border: 1px solid $color__dark;
+    }
+    .my-btn-container:hover {
+        background-color: $color__light !important;
+        color: #000;
+        border: 1px solid #000;
+    }
+
+    .my-btn-container-static {
+        font-size: 1.2rem;
+        padding: 3rem;
+        color: $color__dark;
+        border: 1px solid $color__dark;
+    }
+    .my-btn-container-static:hover {
+        background-color: $color__light !important;
+        color: #000;
+        border: 1px solid #000;
     }
 
 </style>
