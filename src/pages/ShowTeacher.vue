@@ -81,6 +81,7 @@
                 <div class="p-4 ps-5">
                     <span class="my-4">Lascia una recensione</span>
                         <div class="col-12 col-md-6">
+                            
 
                             <!-- FORM RECENSIONE -->
                             <form @submit.prevent="sendReviewVoteForm">
@@ -100,6 +101,9 @@
                                 </div>
                                 <div class="mb-4">
                                     <button type="submit" class="btn btn-primary">Invia</button>
+                                </div>
+                                <div v-if="this.sendMessage">
+                                    <p class="text-success">Messaggio inviato con successo! 	&#10003</p>
                                 </div>
                             </form>
                             
@@ -194,6 +198,9 @@
                     axios.post('http://localhost:8000/api/sendreview', this.reviewForm)
                     .then(response => {
                         console.log(response);
+                        this.sendMessage= true
+                        this.reviewForm.name = ""
+                        this.reviewForm.review_text = ""
                     })
                     .catch(error => {
                         console.error(error);
