@@ -46,7 +46,11 @@
             <div class="order-1 order-md-1 order-lg-2 col-12 col-md-12 col-lg-5">
                 <div class="my-bgGreen my-rounded col-12 col-lg-8 offset-lg-4 mt-3 p-2">
                     <div class="d-flex flex-column align-items-center text-light py-4 gap-3">
-                        <img :src="teacherData.profile_image" class="img-fluid rounded-circle mt-3 my-border-img" alt="Nome Cognome">
+                        <div class="w-100 ps-5 pe-5">
+                            <div class="ratio ratio-1x1 bg-danger rounded-circle mt-4 overflow-hidden">
+                                <img :src="teacherData.profile_image.startsWith('http') ? teacherData.profile_image : `http://localhost:8000/storage/${teacherData.profile_image}`" class="object-fit-cover w-100" alt="Nome Cognome">
+                            </div>
+                        </div>
                         <h2>{{ teacherData.name }} {{ teacherData.surname }}</h2>
                         <p class="card-text m-0">
                             <span :class="teacherData.avg_vote >= 1 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>

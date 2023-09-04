@@ -1,6 +1,10 @@
 <template>
     <div class="card shadow border" style="width: 18rem;">
-        <img :src="teacher.profile_image" class="card-img-top rounded-circle ps-5 pe-5 mt-4" alt="Nome Cognome">
+        <div class="ps-5 pe-5">
+            <div class="ratio ratio-1x1 rounded-circle mt-4 overflow-hidden">
+                <img :src="teacher.profile_image.startsWith('http') ? teacher.profile_image : `http://localhost:8000/storage/${teacher.profile_image}`" class="object-fit-cover" alt="Nome Cognome">
+            </div>
+        </div>
         <div class="card-body d-flex flex-column align-items-center">
             <h5 class="card-title m-0">{{ teacher.name }} {{ teacher.surname }}</h5>
             <p class="card-text m-0 p-3">
