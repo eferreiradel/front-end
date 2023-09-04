@@ -1,20 +1,24 @@
 <template>
-    <div class="container my-5">
-        <div class="row col-8 offset-2">
-            <div class="my-cta-container p-5">
-                <div id="lg">
-                    <h3 class="d-none d-lg-block">Anche tu,<br> diventa un super insegnante</h3>
-                    <p class="mt-4 d-none d-lg-block">Condividi le tue conoscenze, vivi della tua passione!</p>
+    <div class="container-fluid">
+        <div class="container py-5 px-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="my-cta-container p-5">
+                        <div id="lg">
+                            <h3 class="d-none d-lg-block">Anche tu,<br> diventa un super insegnante</h3>
+                            <p class="mt-4 d-none d-lg-block">Condividi le tue conoscenze, vivi della tua passione!</p>
+                        </div>
+                        <div id="sm">
+                            <h3 class="d-block d-lg-none">Anche tu,<br> diventa un super insegnante</h3>
+                            <p class="mt-4 d-block d-lg-none">Condividi le tue conoscenze, vivi della tua passione!</p>
+                        </div>
+                        <a href="http://127.0.0.1:8000/register">
+                            <button class="button" type="button">
+                                Registrati
+                            </button>
+                        </a>
+                    </div>
                 </div>
-                <div id="sm">
-                    <h3 class="d-block d-lg-none">Anche tu,<br> diventa un super insegnante</h3>
-                    <p class="mt-4 d-block d-lg-none">Condividi le tue conoscenze, vivi della tua passione!</p>
-                </div>
-                <a href="http://127.0.0.1:8000/register">
-                    <button class="button" type="button">
-                        Registrati
-                    </button>
-                </a>
             </div>
         </div>
     </div>

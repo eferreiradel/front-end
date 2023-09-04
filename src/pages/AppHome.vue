@@ -1,40 +1,45 @@
 <template>
-    <Jumbotron class="my-margin-jumbo"/>
-    <SliderHome class="my-margin-slider"/>
-    <BulletPoints class="" />
-    <CallToAction class="my-margin" />
+  <Jumbotron class="my-margin-jumbo" />
+  <SliderHome class="my-margin-slider" />
+  <BulletPoints class="" />
+  <SliderReviews></SliderReviews>
+  <CallToAction class="my-margin" />
+  <Footer></Footer>
 </template>
 
 <script>
-    import Jumbotron from '../components/layouts/Jumbotron.vue'
-    import SliderHome from '../components/ui/SliderHome.vue'
-    import BulletPoints from '../components/ui/BulletPoints.vue'
-    import CallToAction from '../components/ui/CallToAction.vue'
+import Jumbotron from "../components/layouts/Jumbotron.vue";
+import SliderHome from "../components/ui/SliderHome.vue";
+import BulletPoints from "../components/ui/BulletPoints.vue";
+import CallToAction from "../components/ui/CallToAction.vue";
+import SliderReviews from "../components/ui/SliderReviews.vue";
+import Footer from "../components/ui/Footer.vue";
 
-    export default {
-        name: "AppHome",
-        components: {
-            Jumbotron,
-            SliderHome,
-            BulletPoints,
-            CallToAction,
-        }
-    }
+export default {
+  name: "AppHome",
+  components: {
+    Jumbotron,
+    SliderHome,
+    BulletPoints,
+    CallToAction,
+    SliderReviews,
+    Footer
+},
+};
 </script>
 
 <style scoped lang="scss">
-    @import "../style.scss";
+@import "../style.scss";
 
-    .my-margin-jumbo {
-        margin-bottom: 6rem;
-    }
+.my-margin-jumbo {
+  margin-bottom: 6rem;
+}
 
-    .my-margin-slider {
-        margin-bottom: 12rem;
-    }
+.my-margin-slider {
+  margin-bottom: 12rem;
+}
 
-    
-    .my-margin {
-        margin-bottom: 15rem;
-    }
+.my-margin {
+  margin-bottom: 15rem;
+}
 </style>

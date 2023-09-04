@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="my-padding d-flex justify-content-between aling-items-center">
-                    <div class="d-lg-none">
+                    <div class="d-lg-none d-flex align-items-center">
                         <AppHeaderToggle></AppHeaderToggle>
                     </div>
                     <div class="ms-3">
