@@ -18,8 +18,7 @@
                 store,
                 currentPage:1,
                 minVote: 1,
-                stars: [false, false, false, false, false],
-                lastSelectedIndex: -1,
+                reviewNumber:"5"
             }
         },
         watch: {
@@ -47,15 +46,15 @@
                 this.minVote = index;
              },
             searchWithFilter(){
-                this.store.putFilteredUsers(this.$refs.MainSelect.searchTerm ?? '', this.minVote ?? '');
+                this.store.putFilteredUsers(this.$refs.MainSelect.searchTerm ?? '', this.minVote ?? '', this.reviewNumber ?? '');
                 this.$router.push({ 
                     name: 'search', 
-                    query: { subjects: this.$refs.MainSelect.searchTerm, 'minvote': this.minVote} 
+                    query: { subjects: this.$refs.MainSelect.searchTerm, 'minvote': this.minVote, 'reviewnumber' : this.reviewNumber} 
                 });
-            }
+            },
         },
         mounted(){
-            this.store.putFilteredUsers(this.$route.query.subjects ?? '', this.$route.query.minvote ?? '');
+            this.store.putFilteredUsers(this.$route.query.subjects ?? '', this.$route.query.minvote ?? '', this.$route.query.reviewnumber ?? '');
         }
     }
 
@@ -68,6 +67,15 @@
             <div class="d-flex align-items-center justify-content-between p-5 gap-5 border mt-4 rounded">
                 <div class="col-12 col-md-4">
                     <MainSelect  ref="MainSelect" />
+                </div>
+                <div class="numberReviewSelect">
+                    <label class="fw-bold" for="review">Numero recensioni:</label>
+                    <select v-model="reviewNumber" class="form-select" aria-label="Default select example" name="review" id="review">
+                        <option selected value="5">più di 5 </option>
+                        <option value="10">più di 10 </option>
+                        <option value="15">più di 15 </option>
+                        <option value="20">più di 20 </option>
+                    </select>
                 </div>
                 <div>
                     <h5>Voto minimo</h5>
