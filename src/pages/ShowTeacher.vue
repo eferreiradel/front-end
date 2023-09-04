@@ -38,6 +38,12 @@
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-primary">Invia</button>
                             </div>
+                            <div v-if="this.sendMessage == true">
+                                <p class="text-success">Messaggio inviato con successo! 	&#10003</p>
+                            </div>
+                            <div v-if="this.sendMessage == false">
+                                <p class="text-danger">Ops qualcosa è andato storto! 	&#10007;</p>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -82,6 +88,7 @@
                 <div class="p-4 ps-5">
                     <span class="my-4">Lascia una recensione</span>
                         <div class="col-12 col-md-6">
+                            
 
                             <!-- FORM RECENSIONE -->
                             <form @submit.prevent="sendReviewVoteForm">
@@ -101,6 +108,12 @@
                                 </div>
                                 <div class="mb-4">
                                     <button type="submit" class="btn btn-primary">Invia</button>
+                                </div>
+                                <div v-if="this.sendReview == true">
+                                    <p class="text-success">Messaggio inviato con successo! 	&#10003;</p>
+                                </div>
+                                <div v-if="this.sendReview == false">
+                                    <p class="text-danger">Ops qualcosa è andato storto! 	&#10007;</p>
                                 </div>
                             </form>
                             
@@ -139,6 +152,8 @@
         return {
             store,
             teacherData: null,
+            sendMessage:null,
+            sendReview:null,
             contactForm: {
                 userId: this.$route.params.userId,
                 email: '',
@@ -172,9 +187,13 @@
                 axios.post('http://localhost:8000/api/sendmessage', this.contactForm)
                 .then(response => {
                     console.log(response);
+                    this.sendMessage = true
+                    this.contactForm.email=""
+                    this.contactForm.message_text=""
                 })
                 .catch(error => {
                     console.error(error);
+                    this.sendMessage = false
                 });
             },
             sendReviewVoteForm(){
@@ -191,9 +210,13 @@
                     axios.post('http://localhost:8000/api/sendreview', this.reviewForm)
                     .then(response => {
                         console.log(response);
+                        this.sendReview= true
+                        this.reviewForm.name = ""
+                        this.reviewForm.review_text = ""
                     })
                     .catch(error => {
                         console.error(error);
+                        this.sendReview= false
                     });
                 }
             }

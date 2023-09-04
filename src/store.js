@@ -22,11 +22,11 @@ export const store = reactive({
         });
     },
 
-    putFilteredUsers(subjects, minVote) {
+    putFilteredUsers(subjects, minVote, review) {
         this.requestsOnLoading += 1
-        axios.get(this.apiUrl + 'users?min-vote=' + minVote + '&subjects=' + subjects).then(response => {
+        axios.get(this.apiUrl + 'users?min-vote=' + minVote + '&subjects=' + subjects + '&review-number=' + review).then(response => {
             this.users = response.data.data
-            console.log(this.apiUrl + 'users?min-vote=' + minVote + '&subjects=' + subjects)
+            console.log(this.apiUrl + 'users?min-vote=' + minVote + '&subjects=' + subjects + '&review-number=' + review)
             this.requestsOnLoading -= 1
             this.lastPage = response.data.last_page
 
