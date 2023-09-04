@@ -18,7 +18,7 @@
                 store,
                 currentPage:1,
                 minVote: 1,
-                reviewNumber:"5"
+                reviewNumber:""
             }
         },
         watch: {
@@ -71,7 +71,8 @@
                 <div class="numberReviewSelect">
                     <label class="fw-bold" for="review">Numero recensioni:</label>
                     <select v-model="reviewNumber" class="form-select" aria-label="Default select example" name="review" id="review">
-                        <option selected value="5">più di 5 </option>
+                        <option selected value="">Qualsiasi </option>
+                        <option value="5">più di 5 </option>
                         <option value="10">più di 10 </option>
                         <option value="15">più di 15 </option>
                         <option value="20">più di 20 </option>
@@ -97,6 +98,8 @@
                     :length="store.lastPage"
                     :total-visible="5"
                 ></v-pagination>
+                <p v-if="this.store.users <= 0">nessun risultato</p>
+
 
                 <div class="d-md-flex flex-wrap gap-2 justify-content-center">
                     <div v-for="user in store.users">
