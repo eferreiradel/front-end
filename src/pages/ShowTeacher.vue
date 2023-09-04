@@ -28,15 +28,12 @@
                 <div class="p-4 ps-5">
                     <h3 class="my-1">Contatta</h3>
                     <div class="col-12 col-md-6">
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <div class="my-4">
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required>
+                        <form @submit.prevent="sendMessageForm">
+                            <div class="mb-4">
+                                <input v-model="contactForm.email" type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                             </div>
                             <div class="mb-4">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
-                            </div>
-                            <div class="mb-4">
-                                <textarea name="content" id="content" class="form-control" placeholder="Messaggio" required></textarea>
+                                <textarea v-model="contactForm.message_text" name="content" id="content" class="form-control" placeholder="Messaggio" required></textarea>
                             </div>
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-primary">Invia</button>
@@ -83,33 +80,26 @@
                         <div class="col-12 col-md-6">
 
                             <!-- FORM RECENSIONE -->
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form @submit.prevent="sendReviewVoteForm">
+                                <div  class="stars d-flex align-items-center mt-3">
+                                    <i 
+                                        v-for="(star, index) in 5" 
+                                        :key="index"
+                                        @click="switchStars(index + 1)" 
+                                        :class="(index + 1) <= voteForm.vote ? 'fa fa-star fs-3 checked' : 'fa fa-star fs-3'"
+                                    ></i>
+                                </div>
                                 <div class="my-4">
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required>
+                                    <input v-model="reviewForm.name" type="text" name="name" id="name" class="form-control" placeholder="Nome">
                                 </div>
                                 <div class="mb-4">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
-                                </div>
-                                <div class="mb-4">
-                                    <textarea name="content" id="content" class="form-control" placeholder="Messaggio" required></textarea>
+                                    <textarea v-model="reviewForm.review_text" name="content" id="content" class="form-control" placeholder="Messaggio"></textarea>
                                 </div>
                                 <div class="mb-4">
                                     <button type="submit" class="btn btn-primary">Invia</button>
                                 </div>
                             </form>
                             
-                        </div>
-                        <div class="d-flex flex-column justify-content-center align-items-center">
-                            <span class="mt-5 mb-4">Lascia una voto</span>
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                <div class="my-4">
-                                    <span :class="teacherData.avg_vote >= 1 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
-                                    <span :class="teacherData.avg_vote >= 2 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
-                                    <span :class="teacherData.avg_vote >= 3 ? 'fa fa-star fs-3 checked' : 'fa fa-star fs-3'"></span>
-                                    <span :class="teacherData.avg_vote >= 4 ? 'fa fa-star fs-4 checked' : 'fa fa-star fs-4'"></span>
-                                    <span :class="teacherData.avg_vote >= 5 ? 'fa fa-star fs-5 checked' : 'fa fa-star fs-5'"></span>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 <div class="d-flex flex-column gap-4">
@@ -137,34 +127,82 @@
 
 <script>
     import { store } from '../store';
+    import axios from 'axios'
 
     export default {
         name: "ShowTeacher",
         data() {
         return {
             store,
-            teacherData: null
-        }
-        },
-        methods: { 
-        handleScroll() {
-            const button = document.querySelector('.my-btn-container');
-            if (window.scrollY > 600) {
-            button.style.display = 'block';
-            } else {
-            button.style.display = 'none';
+            teacherData: null,
+            contactForm: {
+                userId: this.$route.params.userId,
+                email: '',
+                message_text: ''
+            },
+            voteForm:{
+                userId: this.$route.params.userId,
+                vote: null,
+            },
+            reviewForm: {
+                userId: this.$route.params.userId,
+                name: '',
+                review_text: ''
             }
         }
         },
-        beforeDestroy() {
-        window.removeEventListener('scroll', this.handleScroll);
+        methods: { 
+            handleScroll() {
+                const button = document.querySelector('.my-btn-container');
+                if (window.scrollY > 600) {
+                    button.style.display = 'block';
+                } else {
+                    button.style.display = 'none';
+                }
+            },
+            switchStars(index){
+                this.voteForm.vote = index;
+                console.log("Voto: " + this.voteForm.vote);
+            },
+            sendMessageForm(){
+                axios.post('http://localhost:8000/api/sendmessage', this.contactForm)
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            },
+            sendReviewVoteForm(){
+                if(this.voteForm.vote){
+                    axios.post('http://localhost:8000/api/sendvote', this.voteForm)
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+                }
+                if(this.reviewForm.name && this.reviewForm.review_text){
+                    axios.post('http://localhost:8000/api/sendreview', this.reviewForm)
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+                }
+            }
         },
+            beforeDestroy() {
+                window.removeEventListener('scroll', this.handleScroll);
+            },
         mounted() {
-        store.getUserById(this.$route.params.userId).then(userData => {
-            this.teacherData = userData;
-            console.log(this.teacherData);
-        });
-            window.addEventListener('scroll', this.handleScroll);
+            store.getUserById(this.$route.params.userId).then(userData => {
+                this.teacherData = userData;
+                console.log(this.teacherData);
+            });
+                window.addEventListener('scroll', this.handleScroll);
         }
     }
 </script>
