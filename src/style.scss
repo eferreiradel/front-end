@@ -67,3 +67,23 @@ ul {
   background-color: $color__primary !important;
   color: white !important;
 }
+
+// SEARCHBAR
+
+.v-autocomplete__selection {
+  background-color: $color__primary !important;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0.3rem;
+  color: $color__light;
+}
+
+.v-list-item {
+  background-color: $color__light;
+  color: $color__dark;
+}
+
+.v-list-item--active {
+  background-color: $color__secondary;
+  color: $color__light;
+}
