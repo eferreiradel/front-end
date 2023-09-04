@@ -52,6 +52,12 @@ li {
   list-style: none;
   font-weight: bolder;
 }
+ul {
+  // text-transform: uppercase;
+  // font-weight: bolder;
+  margin-left: 0px;
+  padding-left: 0;
+}
 
 .splide__pagination__page.is-active {
   background: $color__primary !important;

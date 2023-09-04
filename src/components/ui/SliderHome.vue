@@ -1,17 +1,23 @@
 <template>
     <template v-if="!store.requestsOnLoading">
-        <div class="container">
-            <div class="row">
-                <h2 class="text-center">Insegnanti in evidenza</h2>
-                <Splide :options="splideOptions">
-                    <template v-for="(user, index) in store.users" :key="index">
-                        <SplideSlide>
-                            <div class="d-flex justify-content-evenly mb-5">
-                                <TeacherCard :teacher="user"/>
-                            </div>
-                        </SplideSlide>
-                    </template>
-                </Splide>
+        <div class="container-fluid slider-home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center py-5 align-items-center">
+                            <h2 class="text-center text-light">Insegnanti in evidenza</h2>
+                        </div>
+                        <Splide :options="splideOptions">
+                            <template v-for="(user, index) in store.users" :key="index">
+                                <SplideSlide>
+                                    <div class="d-flex justify-content-evenly">
+                                        <TeacherCard :teacher="user"/>
+                                    </div>
+                                </SplideSlide>
+                            </template>
+                        </Splide>
+                    </div>
+                </div>
             </div>
         </div>
     </template>
@@ -72,6 +78,10 @@ export default {
 <style scoped lang="scss">
 @import "../../style.scss";
 
+    .slider-home {
+    background: $color__primary;
+    background: linear-gradient(180deg, $color__primary 0%, $color__primary 50%, rgba(52,52,175,0) 50%, rgba(255,255,255,0) 100%);
+    }
     h2, h4, p {
         margin: 0;
     }
@@ -79,7 +89,6 @@ export default {
     h2 {
         font-size: 2.5rem;
         font-weight: 700;
-        margin-bottom: 5rem;
         color: $color__dark;
     }
 
