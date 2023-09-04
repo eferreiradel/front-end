@@ -38,6 +38,9 @@
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-primary">Invia</button>
                             </div>
+                            <div v-if="this.sendMessage">
+                                <p class="text-success">Messaggio inviato con successo! 	&#10003</p>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -135,6 +138,7 @@
         return {
             store,
             teacherData: null,
+            sendMessage: false,
             contactForm: {
                 userId: this.$route.params.userId,
                 email: '',
@@ -168,6 +172,9 @@
                 axios.post('http://localhost:8000/api/sendmessage', this.contactForm)
                 .then(response => {
                     console.log(response);
+                    this.contactForm.email=""
+                    this.contactForm.message_text=""
+                    this.sendMessage = true
                 })
                 .catch(error => {
                     console.error(error);
