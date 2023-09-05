@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid navBar d-flex justify-content-center align-items-center">
+    <div class="container-fluid navBar fixed-top d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="row">
                 <div class="my-padding d-flex justify-content-between aling-items-center">

@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="toggle"
+    class="toggle shadow"
     data-bs-toggle="offcanvas"
     data-bs-target="#offcanvas"
     aria-controls="offcanvasExample"

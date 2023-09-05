@@ -6,5 +6,9 @@ $color__light: whitesmoke;
 $color__dark: #3b3b38;
 $color__stars: rgb(255, 0, 111);
 
-// measures
+//measures
 // $appheader__height: 80px;
+
+.my-bg-primary {
+    background-color: $color__primary;
+}
