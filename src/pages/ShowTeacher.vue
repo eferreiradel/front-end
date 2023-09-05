@@ -7,12 +7,12 @@
       >
         <div class="d-flex ps-4 flex-column gap-2">
           <!-- <h5 class="p-4">{{ teacherData.name }} {{ teacherData.surname }}</h5> -->
-          <div class="card w-100 p-4 rounded-lg shadow-sm">
+          <div class="card w-100 p-4 rounded-top shadow-sm">
             <div class="py-3">
                 <h3>{{ teacherData.description }}</h3>
             </div>
             <div class="px-0">
-                <h3 class="py-3">Modalità</h3>
+                <h4 class="py-3">Modalità</h4>
             </div>
             <div class="d-flex flex-wrap gap-2">
               <div
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="order-1 order-md-1 order-lg-2 col-12 col-md-12 col-lg-5">
-        <div class="my-bgGreen my-rounded col-12 col-lg-8 offset-lg-4 mt-3 p-2">
+        <div class="card bg-primary shadow col-12 col-lg-8 offset-lg-4 mt-3 p-2">
           <div
             class="d-flex flex-column align-items-center text-light py-4 gap-3"
           >
