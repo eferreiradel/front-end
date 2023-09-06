@@ -129,6 +129,8 @@
                                                                 @click="switchStars(index + 1)"
                                                                 :class="(index + 1) <= voteForm.vote ? 'fa fa-star fs-3 checked' : 'fa fa-star fs-3'"></i>
                                                         </div>
+                                                        <p v-if="this.sendVote == true" class="text-success">Voto inviato con successo! &#10003; </p>
+                                                        <p v-if="this.sendVote == false" class="text-danger">Ops qualcosa è andato storto! &#10007; </p>
                                                         <div class="my-4">
                                                             <input v-model="reviewForm.name" type="text" name="name"
                                                                 id="name" class="form-control" placeholder="Nome">
@@ -142,7 +144,7 @@
                                                             <button type="submit my-button-primary" class="">Invia</button>
                                                         </div>
                                                         <div v-if="this.sendReview == true">
-                                                            <p class="text-success">Messaggio inviato con successo! &#10003;
+                                                            <p class="text-success">Recensione inviata con successo! &#10003;
                                                             </p>
                                                         </div>
                                                         <div v-if="this.sendReview == false">
@@ -193,6 +195,7 @@ export default {
             teacherData: null,
             sendMessage: null,
             sendReview: null,
+            sendVote: null,
             contactForm: {
                 userId: this.$route.params.userId,
                 email: '',
@@ -252,9 +255,11 @@ export default {
                 axios.post('http://localhost:8000/api/sendvote', this.voteForm)
                     .then(response => {
                         console.log(response);
+                        this.sendVote = true;
                     })
                     .catch(error => {
                         console.error(error);
+                        this.sendVote = false;
                     });
             }
             if (this.reviewForm.name && this.reviewForm.review_text) {
