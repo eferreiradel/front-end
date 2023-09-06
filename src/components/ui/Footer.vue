@@ -31,11 +31,11 @@
                             </span>
                         </div>
                     </div>
-                    <div class="pt-5 d-md-flex justify-content-md-between align-items-md-center">
-                        <div class="text-light text-center">
+                    <div class="pt-5 d-flex flex-column d-md-flex flex-md-row justify-content-md-between align-items-md-center">
+                        <div class="order-2 order-md-1 text-light text-center">
                             &copy; 2023 myprof. Tutti i diritti riservati.
                         </div>
-                        <div class="social">
+                        <div class="text-center order-1 order-md-2 social">
                             <i class="me-3 fa-brands fa-square-facebook"></i>
                             <i class="me-3 fa-brands fa-square-instagram"></i>
                             <i class="fa-brands fa-square-youtube"></i>

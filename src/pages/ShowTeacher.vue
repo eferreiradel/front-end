@@ -164,16 +164,6 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="mx-auto d-flex justify-content-center align-items-center">
-                    <button
-                        class="w-50 my-btn-container btn my-3 fs-5 py-3 position-fixed bottom-0 my-rounded my-bgGreen-btn w-100 text-center">
-                        CONTATTA
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
     <div v-else class="position-absolute top-50 start-50 translate-middle">
         Caricamento dati profilo...
@@ -224,15 +214,6 @@ export default {
         };
     },
     methods: {
-        handleScroll() {
-            const button = document.querySelector('.my-btn-container');
-            if (window.scrollY > 600) {
-                button.style.display = 'block';
-            }
-            else {
-                button.style.display = 'none';
-            }
-        },
         switchStars(index) {
             this.voteForm.vote = index;
             console.log("Voto: " + this.voteForm.vote);
