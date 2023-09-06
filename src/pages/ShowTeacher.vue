@@ -1,13 +1,16 @@
 <template>
     <div v-if="teacherData" class="container-fluid px-0 bg-shaded">
+        <!-- <div class="wallpaper">
+            <img src="../../public/images/wallpaper.jpg" alt="">
+        </div> -->
         <ContactModal></ContactModal>
         <div class="container-fluid cover-teacher">
             <div class="container">
-                <div class="row pt-5">
+                <div class="row pt-5 pb-5">
                     <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
                         <div class="image-container rounded-pill object-fit-cover">
                             <img :src="teacherData.profile_image.startsWith('http') ? teacherData.profile_image : `http://localhost:8000/storage/${teacherData.profile_image}`"
-                                class="object-fit-cover w-100" alt="Nome Cognome">
+                                class="object-fit-cover w-100 profile-img" alt="Nome Cognome">
                         </div>
                     </div>
                     <div class="col-12 col-md-9 container-left d-flex flex-column justify-content-end">
@@ -19,17 +22,17 @@
                                             <h3 class="font-weight-bold">{{ teacherData.name }} {{ teacherData.surname }}
                                             </h3>
                                         </div>
-                                        <div class="w-100 text-light">
-                                            <p>{{ teacherData.subjects }}</p>
+                                        <div v-for="subject in teacherData.subjects" class="w-100 text-light py-2">
+                                            <span class="badge bg-light rounded-pill text-dark">{{ subject.name }}</span>
                                         </div>
                                         <div class="px-0">
                                             <h5 class="text-light">Modalità</h5>
                                         </div>
                                         <div class="d-flex flex-wrap gap-4 px-0 text-light">
-                                            <span v-if="teacherData.is_live_lesson" class="badge bg-light text-dark">
+                                            <span v-if="teacherData.is_live_lesson" class="badge bg-light text-dark rounded-pill">
                                                 <i class="fa-solid fa-location-pin"></i> In presenza {{ teacherData.city }}
                                             </span>
-                                            <span v-if="teacherData.is_remote_lesson" class="badge bg-light text-dark">
+                                            <span v-if="teacherData.is_remote_lesson" class="badge bg-light text-dark rounded-pill">
                                                 <i class="fa-solid fa-video"></i> Via webcam
                                             </span>
                                         </div>
@@ -37,7 +40,7 @@
 
                                         </div>
                                         <div class="container d-flex justify-content-end">
-                                            <button class="my-button-primary rounded-pill" data-bs-target="#ContactModal"
+                                            <button class="my-button-primary font-weight-bolder rounded-pill" data-bs-target="#ContactModal"
                                                 data-bs-toggle="modal">
                                                 CONTATTA
                                             </button>
@@ -50,7 +53,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <div class="container">
                 <div class="row py-5">
@@ -153,7 +155,6 @@
                                                             </p>
                                                         </div>
                                                     </form>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -283,6 +284,18 @@ export default {
 <style scoped style lang="scss">
 @import "../style.scss";
 
+// .wallpaper {
+//     width: 100%;
+//     height: 200px;
+//     position: absolute;
+//     z-index: -100;
+//     // height: 50px;
+// }
+// .wallpaper img {
+//     height: 100%;
+//     width: 100%;
+//     object-fit: cover;
+// }
 .line {
     height: 2px;
     background-color: $color__primary;
@@ -290,8 +303,11 @@ export default {
 }
 
 .cover-teacher {
-    background: $color__primary;
-    background: linear-gradient(180deg, $color__dark 0%, $color__dark 90%, rgba(52, 52, 175, 0) 90%, rgba(255, 255, 255, 0) 100%);
+    background-image: url("../../public/images/wallpaper.jpg");
+    background-size: cover;
+    mix-blend-mode: multiply;
+    // background: $color__primary;
+    // background: linear-gradient(180deg, $color__dark 0%, $color__dark 90%, rgba(52, 52, 175, 0) 90%, rgba(255, 255, 255, 0) 100%);
 }
 
 .my-bgGreen {
@@ -304,7 +320,7 @@ export default {
     border: 1px solid $color__dark;
 }
 
-img {
+.profile-img {
     border-radius: 50%;
     height: 200px;
     width: 200px;

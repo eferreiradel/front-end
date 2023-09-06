@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid navBar d-flex justify-content-center align-items-center">
+    <div class="container-fluid navBar d-flex fixed-top justify-content-center align-items-center">
         <div class="container">
             <div class="row">
                 <div class="my-padding d-flex justify-content-between aling-items-center">
@@ -39,7 +39,7 @@ export default {
     .navBar {
         padding: 0.5rem;
         background-color: $color__primary;
-        // height: $appheader__height;
+        height: $appheader__height;
         // border-bottom: 1px solid black;
         i {
             color: white;
