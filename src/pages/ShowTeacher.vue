@@ -1,7 +1,7 @@
 <template>
     <div v-if="teacherData" class="container-fluid px-0 bg-shaded">
         <ContactModal></ContactModal>
-        <div class="container-fluid cover">
+        <div class="container-fluid cover-teacher">
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
@@ -20,7 +20,7 @@
                                             </h3>
                                         </div>
                                         <div class="w-100 text-light">
-                                            <p>{{ teacherData.description }}</p>
+                                            <p>{{ teacherData.subjects }}</p>
                                         </div>
                                         <div class="px-0">
                                             <h5 class="text-light">Modalità</h5>
@@ -289,7 +289,7 @@ export default {
     width: 10%;
 }
 
-.cover {
+.cover-teacher {
     background: $color__primary;
     background: linear-gradient(180deg, $color__dark 0%, $color__dark 90%, rgba(52, 52, 175, 0) 90%, rgba(255, 255, 255, 0) 100%);
 }

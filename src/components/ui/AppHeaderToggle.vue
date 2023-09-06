@@ -1,13 +1,13 @@
 <template>
-  <button
+  <span
     type="button"
-    class="toggle shadow"
+    class="toggle"
     data-bs-toggle="offcanvas"
     data-bs-target="#offcanvas"
     aria-controls="offcanvasExample"
   >
     <i class="fa-solid fa-bars"></i>
-  </button>
+  </span>
   <OffCanvas></OffCanvas>
 </template>
 
