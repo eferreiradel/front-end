@@ -50,6 +50,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container-fluid">
             <div class="container">
                 <div class="row py-5">
@@ -165,8 +166,8 @@
             </div>
         </div>
     </div>
-    <div v-else class="position-absolute top-50 start-50 translate-middle">
-        Caricamento dati profilo...
+    <div v-else>
+        <Loading />
     </div>
 </template>
 
@@ -176,6 +177,7 @@ import ContactModal from '../components/ui/ContactModal.vue';
 import SliderReviews from '../components/ui/SliderReviews.vue';
 import { store } from '../store';
 import axios from 'axios'
+import Loading from '../components/ui/Loading.vue';
 
 export default {
     name: "ShowTeacher",
@@ -272,7 +274,8 @@ export default {
     ContactModal,
     Splide,
     SplideSlide,
-    SliderReviews
+    SliderReviews,
+    Loading
 }
 }
 </script>
