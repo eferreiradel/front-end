@@ -46,7 +46,7 @@
                 this.minVote = index;
              },
             searchWithFilter(){
-                this.store.putFilteredUsers(this.$refs.MainSelect.searchTerm ?? '', this.minVote ?? '', this.reviewNumber ?? '');
+                this.store.putFilteredUsers(this.$refs.MainSelect.searchTerm ?? '', this.minVote ?? '', this.reviewNumber ?? '', false);
                 this.$router.push({ 
                     name: 'search', 
                     query: { subjects: this.$refs.MainSelect.searchTerm, 'minvote': this.minVote, 'reviewnumber' : this.reviewNumber} 

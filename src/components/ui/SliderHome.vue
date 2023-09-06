@@ -61,7 +61,7 @@ export default {
         }
     },mounted(){
         // console.log(this.store.users);
-        this.store.putAllUsers();
+        this.store.putFilteredUsers("", "", "", true);
     }
 //     computed: {
 //     teacherGroups() {
