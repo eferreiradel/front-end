@@ -1,59 +1,34 @@
 <template>
   <!-- Modal -->
-  <div
-    class="modal fade"
-    id="ContactModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="ContactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Contatta</h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="container-fluid">
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <form action="" method="POST" enctype="multipart/form-data">
-                    <div class="my-4">
-                      <input 
-                      type="text"
-                      name="name"
-                      id="name"
-                      class="form-control"
-                      placeholder="Name"
-                      >
+                  <form @submit.prevent="sendMessageForm">
+                    <div class="mb-4">
+                      <input v-model="contactForm.email" type="email" name="email" id="email" class="form-control"
+                        placeholder="Email" required>
                     </div>
                     <div class="mb-4">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        class="form-control"
-                        placeholder="Email"
-                        required
-                      />
+                      <textarea v-model="contactForm.message_text" name="content" id="content" class="form-control"
+                        placeholder="Messaggio" required></textarea>
                     </div>
                     <div class="mb-4">
-                      <textarea
-                        name="content"
-                        id="content"
-                        class="form-control"
-                        placeholder="Messaggio"
-                        required
-                      ></textarea>
+                      <button type="submit" class="btn btn-primary">Invia</button>
                     </div>
-                    <div class="mb-4">
-                      <button type="submit" class="button my-bg-primary w-100">Invia</button>
+                    <div v-if="this.sendMessage == true">
+                      <p class="text-success">Messaggio inviato con successo! &#10003</p>
+                    </div>
+                    <div v-if="this.sendMessage == false">
+                      <p class="text-danger">Ops qualcosa è andato storto! &#10007;</p>
                     </div>
                   </form>
                 </div>
@@ -68,17 +43,46 @@
 <script>
 
 export default {
-    name: "ContactModal",
-    data() {
-        return {
-            isVisible: false,
-        };
-    },
-    methods: {
-        hideModal() {
-            this.isVisible = false;
-        },
-    },
+  name: "ContactModal",
+  data() {
+    return {
+      isVisible: false,
+      contactForm: {
+        userId: this.$route.params.userId,
+        email: '',
+        message_text: ''
+      },
+    };
+  },
+  methods: {
+    sendMessageForm() {
+      axios.post('http://localhost:8000/api/sendmessage', this.contactForm)
+        .then(response => {
+          console.log(response);
+          this.sendMessage = true;
+          this.contactForm.email = "";
+          this.contactForm.message_text = "";
+        })
+        .catch(error => {
+          console.error(error);
+          this.sendMessage = false;
+        });
+      if (this.reviewForm.name && this.reviewForm.review_text) {
+        axios.post('http://localhost:8000/api/sendreview', this.reviewForm)
+          .then(response => {
+            console.log(response);
+            this.sendReview = true;
+            this.reviewForm.name = "";
+            this.reviewForm.review_text = "";
+          })
+          .catch(error => {
+            console.error(error);
+            this.sendReview = false;
+          });
+      }
+    }
+
+  },
 };
 </script>
 <style lang="scss">
