@@ -21,7 +21,7 @@
 // }
 
 body {
-  padding-top: 3rem;
+  // padding-top: 5rem;
 }
 
 a {
@@ -41,6 +41,14 @@ button {
   border: 1px solid black;
 
 }  
+
+.my-button-primary {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: $color__primary;
+}
 
 .card {
   // border-left: 1px solid dimgray;

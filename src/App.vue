@@ -5,17 +5,20 @@
   <main>
     <RouterView />
   </main>
+  <Footer></Footer>
 </template>
 
 <script>
 import AppHeader from './components/layouts/AppHeader.vue';
+import Footer from './components/ui/Footer.vue'
 import { store } from '../src/store'
 
 export default {
 
   name: "App",
   components: {
-    AppHeader
+    AppHeader,
+    Footer,
   },
   data() {
     return {

@@ -4,7 +4,6 @@
   <BulletPoints class="" />
   <SliderReviews></SliderReviews>
   <CallToAction class="my-margin" />
-  <Footer></Footer>
 </template>
 
 <script>
@@ -23,7 +22,6 @@ export default {
     BulletPoints,
     CallToAction,
     SliderReviews,
-    Footer
 },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
     <template v-if="!store.requestsOnLoading">
-        <div class="container-fluid slider-home">
+        <div class="container-fluid bg-shaded">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -78,7 +78,7 @@ export default {
 <style scoped lang="scss">
 @import "../../style.scss";
 
-    .slider-home {
+    .bg-shaded {
     background: $color__primary;
     background: linear-gradient(180deg, $color__primary 0%, $color__primary 50%, rgba(52,52,175,0) 50%, rgba(255,255,255,0) 100%);
     }
