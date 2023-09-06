@@ -28,7 +28,7 @@ import {store} from '../../store'
         },
         goToAdvancedSearch(){
             if (this.searchTerm && this.searchTerm != '') {
-                this.searchTerm = this.searchTerm.join(',');
+                // this.searchTerm = this.searchTerm.join(", ");
                 this.store.putFilteredUsers(this.searchTerm, "");
 
                 this.$router.push({ 
@@ -49,7 +49,7 @@ import {store} from '../../store'
             this.allSubjectsName = subjectNames;
         });
         if (this.$route.query.subjects) {
-            this.searchTerm = this.$route.query.subjects.split(",");
+            this.searchTerm = this.$route.query.subjects;
         }
     }
 }

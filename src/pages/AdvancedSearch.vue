@@ -18,7 +18,7 @@
                 store,
                 currentPage:1,
                 minVote: 1,
-                reviewNumber:""
+                reviewNumber:"",
             }
         },
         watch: {
@@ -55,7 +55,7 @@
         },
         mounted(){
             this.store.putFilteredUsers(this.$route.query.subjects ?? '', this.$route.query.minvote ?? '', this.$route.query.reviewnumber ?? '');
-        }
+        },
     }
 
 
@@ -91,6 +91,7 @@
                 </div>
                 <button @click="searchWithFilter()">search</button>
             </div>
+            <h4 v-if="this.$route.query.subjects"> Risultati per : {{ Array.isArray(this.$route.query.subjects) ? this.$route.query.subjects.join(", ") : this.$route.query.subjects }}</h4>
             <p v-if="store.loading" class="m-3">Sta caricando...</p>
             <div class="d-flex flex-column justify-content-center align-items-center">
                 <v-pagination class="my-4"
