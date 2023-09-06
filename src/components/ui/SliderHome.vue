@@ -10,7 +10,7 @@
                         <Splide :options="splideOptions">
                             <template v-for="(user, index) in store.users" :key="index">
                                 <SplideSlide>
-                                    <div class="d-flex justify-content-evenly">
+                                    <div class="d-flex justify-content-evenly mb-5">
                                         <TeacherCard :teacher="user"/>
                                     </div>
                                 </SplideSlide>
