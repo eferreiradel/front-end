@@ -38,7 +38,7 @@ import {store} from '../../store'
             } else {
                 this.store.putFilteredUsers("", "");
                 this.$router.push({ 
-                    name: 'search'
+                    name: 'search',
                 });
             }
         },
@@ -48,6 +48,9 @@ import {store} from '../../store'
         this.store.getAllSubjectsName().then(subjectNames => {
             this.allSubjectsName = subjectNames;
         });
+        if (this.$route.query.subjects) {
+            this.searchTerm = this.$route.query.subjects.split(",");
+        }
     }
 }
 </script>
