@@ -105,7 +105,7 @@
                                                 <template v-for="review in teacherData.review">
                                                     <SplideSlide>
                                                         <div class="card line-clamp-3 w-100 p-5">
-                                                            <div class="">
+                                                            <div class="px-5">
                                                                 <h5>{{ review.name }}</h5>
                                                                 <p class="font-weight-light">{{ review.review_text }}</p>
                                                             </div>
@@ -213,10 +213,11 @@ export default {
             autoplay: true,
             focus: "center",
             autoplay: true,
-            arrows: false,
+            arrows: true,
             interval: 6000,
             pauseOnHover: true,
-             },
+            pagination: false,
+            },
         };
     },
     methods: {

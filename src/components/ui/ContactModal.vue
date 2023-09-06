@@ -12,18 +12,16 @@
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <form @submit.prevent="sendMessageForm">
+                  <form @submit.prevent="this.sendMessageForm">
                     <div class="mb-4">
-                      <input v-model="contactForm.email" type="email" name="email" id="email" class="form-control"
+                      <input v-model="this.contactForm.email" type="email" name="email" id="email" class="form-control"
                         placeholder="Email" required>
                     </div>
                     <div class="mb-4">
-                      <textarea v-model="contactForm.message_text" name="content" id="content" class="form-control"
+                      <textarea v-model="this.contactForm.message_text" name="content" id="content" class="form-control"
                         placeholder="Messaggio" required></textarea>
                     </div>
-                    <div class="mb-4">
                       <button type="submit" class="btn btn-primary">Invia</button>
-                    </div>
                     <div v-if="this.sendMessage == true">
                       <p class="text-success">Messaggio inviato con successo! &#10003</p>
                     </div>
@@ -41,11 +39,16 @@
   </div>
 </template>
 <script>
+import { store } from '../../store';
+import axios from 'axios'
+
 
 export default {
   name: "ContactModal",
   data() {
     return {
+      store,
+      sendMessage:null,
       isVisible: false,
       contactForm: {
         userId: this.$route.params.userId,
@@ -67,19 +70,7 @@ export default {
           console.error(error);
           this.sendMessage = false;
         });
-      if (this.reviewForm.name && this.reviewForm.review_text) {
-        axios.post('http://localhost:8000/api/sendreview', this.reviewForm)
-          .then(response => {
-            console.log(response);
-            this.sendReview = true;
-            this.reviewForm.name = "";
-            this.reviewForm.review_text = "";
-          })
-          .catch(error => {
-            console.error(error);
-            this.sendReview = false;
-          });
-      }
+      
     }
 
   },
