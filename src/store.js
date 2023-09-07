@@ -51,7 +51,7 @@ export const store = reactive({
                 resolve(subjectNames);
             }).catch(err => {
                 this.requestsOnLoading -= 1
-                this.$router.push({ name: 'error', params: { code: 404 } })
+                // this.$router.push({ name: 'error', params: { code: 404 } })
                 reject(err);
             });
         });
@@ -66,7 +66,7 @@ export const store = reactive({
                 resolve(user);
             }).catch(err => {
                 this.requestsOnLoading -= 1
-                this.$router.push({ name: 'error', params: { code: 404 } })
+                // this.$router.push({ name: 'error', params: { code: 404 } })
                 reject(err);
             });
         });

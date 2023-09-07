@@ -1,9 +1,11 @@
 <template>
-  <Jumbotron class="my-margin-jumbo" />
-  <SliderHome class="my-margin-slider" />
-  <BulletPoints class="" />
-  <SliderReviews></SliderReviews>
-  <CallToAction class="my-margin" />
+  <div>
+    <Jumbotron class="my-margin-jumbo" />
+    <SliderHome class="my-margin-slider" />
+    <BulletPoints class="" />
+    <SliderReviews></SliderReviews>
+    <CallToAction class="my-margin" />
+  </div>
 </template>
 
 <script>

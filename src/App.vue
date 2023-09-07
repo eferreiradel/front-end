@@ -3,7 +3,14 @@
     <AppHeader />
   </header>
   <main>
-    <RouterView />
+    <!-- LOADING -->
+    <div v-if="store.requestsOnLoading" class="page-height position-absolute w-100 h-100 d-flex justify-content-center align-items-center bg-light z-3">
+      <span class="loader"></span>
+    </div>
+
+    <transition name="fade" mode="out">
+      <RouterView v-show="!store.requestsOnLoading" />
+    </transition>
   </main>
   <Footer></Footer>
 </template>
@@ -23,32 +30,32 @@ export default {
   data() {
     return {
       store,
-      data: "okok",
       fetchedData: null,
     };
-  }, methods: {
-    // getApi() {
-    //   axios.get(store.apiUrl).then(response => {
-    //     store.users = response.data.data
-    //     store.loading = false
-    //     store.lastPage = response.data.last_page
-    //     console.log(store.lastPage);
+  },
+  methods:{
 
-    //   }).catch(err => {
-    //     store.loading = false;
-    //     this.$router.push({ name: 'error', params: { code: 404 } })
-    //   });
-
-
-    // }
-  }, mounted() {
-    // this.store.getApi();
-  }
+  },
 }
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '/src/assets/scss/variables.scss';
+.page-height{
+  max-height: calc(100vh - $appheader__height);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+  transition-delay: .3s; /* Aggiungi un ritardo per far caricare bene la pagina */
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
