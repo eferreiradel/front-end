@@ -59,14 +59,14 @@
     position: relative;
     border: 5px solid green; /* Imposta il colore e lo spessore dei bordi verdi */
     border-radius: 10px; /* Imposta la curvatura dei bordi */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Aggiungi un effetto di ombra */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0); /* Aggiungi un effetto di ombra */
     }
 
     .card::before {
         content: "";
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -1;
+        right: -1;
         border-width: 0 80px 80px 0;
         border-color: transparent $color__primary transparent transparent;
         border-style: solid;
