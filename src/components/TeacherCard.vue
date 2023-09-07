@@ -65,12 +65,12 @@
     .card::before {
         content: "";
         position: absolute;
-        top: -1;
-        right: -1;
+        top: -1px;
+        right: -1px;
         border-width: 0 80px 80px 0;
         border-color: transparent $color__primary transparent transparent;
         border-style: solid;
-        box-shadow: 5px -5px 5px rgba(0, 0, 0, 0.4);
+        box-shadow: 5px -5px 5px rgba(0, 0, 0, 0);
     }
 
     .gold-crown {
