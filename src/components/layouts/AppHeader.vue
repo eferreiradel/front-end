@@ -99,6 +99,12 @@ export default {
             padding: 0.5rem;
             transition: 0.5s;
         }
+        a:hover {
+        border-radius: 10px;
+        background-color: white;
+        color: #0AD48B !important;
+        max-width: 120px;
+    }
     }
 
     .my-padding {
