@@ -296,6 +296,11 @@ export default {
 //     width: 100%;
 //     object-fit: cover;
 // }
+
+.image-container{
+    height: 200px;
+    width: 200px;
+}
 .line {
     height: 2px;
     background-color: $color__primary;

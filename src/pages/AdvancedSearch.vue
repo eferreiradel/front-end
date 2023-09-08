@@ -137,4 +137,8 @@
         border: 1px solid #000;
     }
 
+    .checked {
+        color: orange;
+    }
+
 </style> 
