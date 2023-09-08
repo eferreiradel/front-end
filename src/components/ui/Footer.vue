@@ -35,7 +35,7 @@
                         <div class="order-2 order-md-1 text-light text-center">
                             &copy; 2023 myprof. Tutti i diritti riservati.
                         </div>
-                        <div class="text-center order-1 order-md-2 social">
+                        <div class="text-center order-1 order-md-2 social mb-3 mb-md-0">
                             <i class="me-3 fa-brands fa-square-facebook"></i>
                             <i class="me-3 fa-brands fa-square-instagram"></i>
                             <i class="fa-brands fa-square-youtube"></i>
