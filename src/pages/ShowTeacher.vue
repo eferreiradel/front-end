@@ -369,4 +369,10 @@ export default {
 
 h2 {
     font-weight: 700;
-}</style>
+}
+
+.checked {
+        color: orange;
+}
+
+</style>

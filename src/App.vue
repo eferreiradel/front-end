@@ -42,6 +42,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '/src/assets/scss/variables.scss';
+
+main{
+  width: 100vw;
+}
 .page-height{
   max-height: calc(100vh - $appheader__height);
 }
