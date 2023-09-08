@@ -66,7 +66,7 @@
         <div class="row">
             <div class="d-flex align-items-center justify-content-between p-5 gap-5 border mt-4 rounded">
                 <div class="col-12 col-md-4">
-                    <MainSelect  ref="MainSelect" />
+                    <MainSelect @keyup.enter="searchWithFilter()"  ref="MainSelect" />
                 </div>
                 <div class="numberReviewSelect">
                     <label class="fw-bold" for="review">Numero recensioni:</label>
