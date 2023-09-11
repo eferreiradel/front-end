@@ -1,6 +1,6 @@
 <template>
-    <div class="card shadow green-angle border" style="width: 18rem;">
-        <div class="gold-crown">
+    <div class="card shadow green-angle border" :class="{'card-evidence' : teacher.is_in_evidence}" style="width: 18rem;">
+        <div v-if="teacher.is_in_evidence" class="gold-crown">
             <i class="fas fa-crown" style="color: gold; font-size: 24px;"></i> <!-- Aggiungi l'icona della coroncina -->
         </div>
         <div class="ps-5 pe-5">
@@ -55,14 +55,14 @@
         color: orange;
     }
 
-    .card {
+    .card-evidence {
     position: relative;
     border: 5px solid green; /* Imposta il colore e lo spessore dei bordi verdi */
     border-radius: 10px; /* Imposta la curvatura dei bordi */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0); /* Aggiungi un effetto di ombra */
     }
 
-    .card::before {
+    .card-evidence::before {
         content: "";
         position: absolute;
         top: -1px;
