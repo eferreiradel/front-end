@@ -21,12 +21,8 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    <li class="nav-item container-link-nav me-4" v-if="!isLoggedIn">
-                        <a class="my-style-link-header nav-link text-light" :href="loginUrl">{{ 'Accedi' }}</a>
-                    </li>
-                    <li class="nav-item container-link-nav" v-if="!isLoggedIn && showRegisterLink">
-                        <a class="my-style-link-header nav-link text-light" :href="registerUrl">{{ 'Dare lezioni' }}</a>
+                    <li class="nav-item container-link-nav">
+                        <a class="my-style-link-header nav-link text-light" :href="backofficeUrl">{{ 'Dare lezioni' }}</a>
                     </li>
                     <!-- <li class="nav-item dropdown" v-if="isLoggedIn">
                         <a id="navbarDropdown" class="my-style-link-header name-font text-light nav-link dropdown-toggle"
@@ -64,7 +60,7 @@ export default {
             homeUrl: 'http://localhost:5173/', // Replace with your home URL
             loginUrl: 'http://localhost:8000/login', // Replace with your login URL
             showRegisterLink: true, // Replace with your logic for showing/hiding the registration link
-            registerUrl: 'http://localhost:8000/register', // Replace with your registration URL
+            backofficeUrl: 'http://localhost:8000/', // Replace with your registration URL
             dashboardUrl: 'http://localhost:8000/dashboard', // Replace with your dashboard URL
         };
     },
