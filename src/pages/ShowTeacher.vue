@@ -104,7 +104,7 @@
 <!-- REVIEWS -->                        
                                     <div class="container-fluid px-0">
                                         <div class="container px-0 py-5">
-                                            <Splide :options="this.splideOptions" aria-label="My Favorite Images">
+                                            <Splide v-if="teacherData.review.length" :options="this.splideOptions" aria-label="My Favorite Images">
                                                 <template v-for="review in teacherData.review">
                                                     <SplideSlide>
                                                         <div class="card line-clamp-3 w-100 p-5">
@@ -116,6 +116,7 @@
                                                     </SplideSlide>
                                                 </template>
                                             </Splide>
+                                            <p v-else class="text-center border rounded py-5">Ancora nessuna recensione</p>
                                         </div>
                                     </div>
 <!-- Lascia una tua Recensione -->

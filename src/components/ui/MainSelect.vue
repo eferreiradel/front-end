@@ -1,5 +1,5 @@
 <template>
-            <v-autocomplete @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" v-if="allSubjectsName" label="Cosa vuoi imparare?" :items="allSubjectsName" multiple>
+            <v-autocomplete clearable @keyup.enter="goToAdvancedSearch()" v-model="searchTerm" v-if="allSubjectsName" label="Cosa vuoi imparare?" :items="allSubjectsName" multiple>
             </v-autocomplete>
 </template>
 <script>

@@ -89,9 +89,16 @@
                         ></i>
                     </div>
                 </div>
-                <button @click="searchWithFilter()">search</button>
+                <button @click="searchWithFilter()"><i class="fa-solid fa-magnifying-glass"></i> CERCA</button>
             </div>
-            <h4 v-if="this.$route.query.subjects"> Risultati per : {{ Array.isArray(this.$route.query.subjects) ? this.$route.query.subjects.join(", ") : this.$route.query.subjects }}</h4>
+            <div class="p-3">
+                <h5>Filtri attivi:</h5>
+                <div class="d-flex gap-2">
+                    <span class="my-bg-primary rounded p-2 text-white" v-for="subject in $route.query.subjects">{{subject}}</span>
+                    <span v-if="$route.query.minvote" class="my-bg-primary rounded p-2 text-white">Minimo {{$route.query.minvote}} stelle</span>
+                    <span v-if="$route.query.reviewnumber" class="my-bg-primary rounded p-2 text-white">Più di {{$route.query.reviewnumber}} recensioni</span>
+                </div>
+            </div>
             <p v-if="store.loading" class="m-3">Sta caricando...</p>
             <div class="d-flex flex-column justify-content-center align-items-center">
                 <v-pagination class="my-4"
